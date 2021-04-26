@@ -23,4 +23,15 @@ export class CursoDetalheComponent implements OnInit {
     return rhymes[rhyme.toLowerCase()] ?? 'Rhyme not found';
   }
 
+  calculo(num1: number, num2: number, acao: string): any {
+    const acoes =  {
+      soma: (a, b) => a + b,
+      subtracao: (a, b) => a - b,
+      multiplicacao: (a, b) => a * b,
+      divisao: (a, b) => a /b,
+    };
+
+    return acoes[acao]?.(num1, num2) ?? 'Calculo nao reconhecido'
+  }
+
 }
