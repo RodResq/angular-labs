@@ -6,7 +6,10 @@ import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
 
 
 @NgModule({
-  declarations: [CursosComponent, CursoDetalheComponent],
+  declarations: [
+    CursosComponent,
+    CursoDetalheComponent
+  ],
   imports: [
     CommonModule,
   ],
