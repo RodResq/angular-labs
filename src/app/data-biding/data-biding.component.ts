@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataBidingComponent implements OnInit {
 
+  url: string = 'http:///loaine.training'
+  cursoAngular: boolean = true;
+  urlImage: string = 'http://lorempixel.com/400/200/nature/';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getValor() {
+    return 1;
+  }
+
+  getCurtirCurso() {
+    return true;
+  }
 }

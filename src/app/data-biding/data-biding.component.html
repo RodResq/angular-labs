@@ -1,1 +1,14 @@
-<p>data-biding works!</p>
+<section>
+    <article>
+      <h3>Interpolation / interpolacao</h3>
+      <p>String rendereizada com interpolacao {{ url }}</p>
+      <p>Resultado de 1 + 1 =  {{ 1 + 1 }}</p>
+      <p>Resultado de 1 + 1 =  {{ 1 + 1 + getValor() }}</p>
+      <p>Expressoes Logicas Booleanas {{ cursoAngular && getCurtirCurso() }}</p>
+    </article>
+
+  <article>
+    <img src="{{ urlImage }}">
+    <img [src]="urlImage">
+  </article>
+</section>
