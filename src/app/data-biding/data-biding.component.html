@@ -96,6 +96,9 @@
   <br><br>
   <article>
     <h3>Output Propertie</h3>
-    <app-output-property></app-output-property>
+    <contador
+      [valor]="valorInicial"
+      (mudouValor)="onMudouValor($event)"
+    ></contador>
   </article>
 </section>
