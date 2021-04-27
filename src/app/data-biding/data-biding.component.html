@@ -1,46 +1,104 @@
-<section>
-<!--    <article>-->
-<!--      <h3>Interpolation / interpolacao</h3>-->
-<!--      <p>String rendereizada com interpolacao {{ url }}</p>-->
-<!--      <p>Resultado de 1 + 1 =  {{ 1 + 1 }}</p>-->
-<!--      <p>Resultado de 1 + 1 =  {{ 1 + 1 + getValor() }}</p>-->
-<!--      <p>Expressoes Logicas Booleanas {{ cursoAngular && getCurtirCurso() }}</p>-->
-<!--    </article>-->
+<!--<section>-->
+<!--&lt;!&ndash;    <article>&ndash;&gt;-->
+<!--&lt;!&ndash;      <h3>Interpolation / interpolacao</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p>String rendereizada com interpolacao {{ url }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p>Resultado de 1 + 1 =  {{ 1 + 1 }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p>Resultado de 1 + 1 =  {{ 1 + 1 + getValor() }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p>Expressoes Logicas Booleanas {{ cursoAngular && getCurtirCurso() }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    </article>&ndash;&gt;-->
 
+<!--&lt;!&ndash;  <article>&ndash;&gt;-->
+<!--&lt;!&ndash;    <img src="{{ urlImage }}">&ndash;&gt;-->
+<!--&lt;!&ndash;    <img [src]="urlImage">&ndash;&gt;-->
+<!--&lt;!&ndash;  </article>&ndash;&gt;-->
+<!--  <br><br>-->
 <!--  <article>-->
-<!--    <img src="{{ urlImage }}">-->
-<!--    <img [src]="urlImage">-->
+<!--    <h3>Class e Style Binding</h3>-->
+<!--    <div>-->
+<!--      Selecione uma classe:-->
+<!--      <select #classe (change)="0">-->
+<!--        <option value="alert-success">Sucesso</option>-->
+<!--        <option value="alert-info">Info</option>-->
+<!--        <option value="alert-warning">Alerta</option>-->
+<!--        <option value="alert-danger">Erro</option>-->
+<!--      </select>-->
+<!--      <br><br>-->
+<!--      <div class="alert" role="alert"-->
+<!--        [class.alert-success]="classe.value == 'alert-success'">Sucesso</div>-->
+<!--      <div class="alert" role="alert"-->
+<!--        [class.alert-info]="classe.value == 'alert-info'">Info</div>-->
+<!--      <div class="alert" role="alert"-->
+<!--        [class.alert-warning]="classe.value == 'alert-warning'">Alerta</div>-->
+<!--      <div class="alert" role="alert"-->
+<!--        [class.alert-danger]="classe.value == 'alert-danger'">Erro</div>-->
+<!--    </div>-->
+<!--    <br><br>-->
+<!--    <div class="alert {{ classe.value }}" role="alert">-->
+<!--      Texto coloorido conforme combobox-->
+<!--    </div>-->
+<!--    <br><br>-->
+<!--    <div class="alert alert-danger" role="alert"-->
+<!--      [style.display]="classe.value == 'alert-danger' ? 'block': 'none'">-->
+<!--      Texto So aparece em caso de error-->
+<!--    </div>-->
+
 <!--  </article>-->
+<!--</section>-->
+
+<!--<section>-->
+<!--  &lt;!&ndash;    <article>&ndash;&gt;-->
+<!--  &lt;!&ndash;      <h3>Interpolation / interpolacao</h3>&ndash;&gt;-->
+<!--  &lt;!&ndash;      <p>String rendereizada com interpolacao {{ url }}</p>&ndash;&gt;-->
+<!--  &lt;!&ndash;      <p>Resultado de 1 + 1 =  {{ 1 + 1 }}</p>&ndash;&gt;-->
+<!--  &lt;!&ndash;      <p>Resultado de 1 + 1 =  {{ 1 + 1 + getValor() }}</p>&ndash;&gt;-->
+<!--  &lt;!&ndash;      <p>Expressoes Logicas Booleanas {{ cursoAngular && getCurtirCurso() }}</p>&ndash;&gt;-->
+<!--  &lt;!&ndash;    </article>&ndash;&gt;-->
+
+<!--  &lt;!&ndash;  <article>&ndash;&gt;-->
+<!--  &lt;!&ndash;    <img src="{{ urlImage }}">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <img [src]="urlImage">&ndash;&gt;-->
+<!--  &lt;!&ndash;  </article>&ndash;&gt;-->
+<!--  <br><br>-->
+<!--  <article>-->
+<!--    <h3>Event Biding</h3>-->
+<!--    <div>-->
+<!--      <button-->
+<!--        (click)="botaoClicado()"-->
+<!--        (keyup.enter)="salvarValor(campoInput.value)"-->
+<!--        (blur)="salvarValor(campoInput.value)"-->
+<!--        #campoInput-->
+
+<!--        class="btn btn-primary">-->
+<!--        Me click</button>-->
+<!--      <br><br>-->
+<!--      <input type="text" (keyup)="onkeyUp($event)">-->
+<!--      <P>Valor Digitado: {{ valorAtual }}</P>-->
+<!--      <P>Valor Salvo: {{ valorSalvo }}</P>-->
+<!--    </div>-->
+<!--    <br><br>-->
+<!--    <span-->
+<!--      (mouseover)="onMouseOver()"-->
+<!--      (mouseout)="onMouseOverOut()"-->
+<!--      [class.highloght]="isMouseOver"-->
+<!--    >Passe o mouse em min!</span>-->
+<!--  </article>-->
+<!--</section>-->
+<section>
   <br><br>
   <article>
-    <h3>Class e Style Binding</h3>
+    <h3>Two-way data Biding</h3>
     <div>
-      Selecione uma classe:
-      <select #classe (change)="0">
-        <option value="alert-success">Sucesso</option>
-        <option value="alert-info">Info</option>
-        <option value="alert-warning">Alerta</option>
-        <option value="alert-danger">Erro</option>
-      </select>
-      <br><br>
-      <div class="alert" role="alert"
-        [class.alert-success]="classe.value == 'alert-success'">Sucesso</div>
-      <div class="alert" role="alert"
-        [class.alert-info]="classe.value == 'alert-info'">Info</div>
-      <div class="alert" role="alert"
-        [class.alert-warning]="classe.value == 'alert-warning'">Alerta</div>
-      <div class="alert" role="alert"
-        [class.alert-danger]="classe.value == 'alert-danger'">Erro</div>
+      <input type="text"
+        [value]="nome" (input)="nome = $event.target.value" />
+      <br>
+      <input type="text"
+             [ngModel]="nome"
+             (ngModelChange)="nome = $event"
+      />
+      <br>
+      <input type="text"
+        [(ngModel)]="nome" />
+      <p>Voce digitou o nome {{ nome }}</p>
     </div>
-    <br><br>
-    <div class="alert {{ classe.value }}" role="alert">
-      Texto coloorido conforme combobox
-    </div>
-    <br><br>
-    <div class="alert alert-danger" role="alert"
-      [style.display]="classe.value == 'alert-danger' ? 'block': 'none'">
-      Texto So aparece em caso de error
-    </div>
-
   </article>
 </section>

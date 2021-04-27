@@ -3,13 +3,28 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-data-biding',
   templateUrl: './data-biding.component.html',
-  styleUrls: ['./data-biding.component.css']
+  styles: [
+    `
+      .highloght {
+        background-color: yellow;
+        font-weight: bold;
+      }
+    `
+  ]
 })
 export class DataBidingComponent implements OnInit {
 
   url: string = 'http:///loaine.training'
   cursoAngular: boolean = true;
   urlImage: string = 'http://lorempixel.com/400/200/nature/';
+
+  valorAtual: string = '';
+
+  valorSalvo: string = '';
+
+  isMouseOver: boolean = false;
+
+  nome: string = 'abc';
 
   constructor() { }
 
@@ -22,5 +37,26 @@ export class DataBidingComponent implements OnInit {
 
   getCurtirCurso() {
     return true;
+  }
+
+  botaoClicado() {
+    alert("Me click!")
+  }
+
+  onkeyUp(event: KeyboardEvent) {
+    console.log((<HTMLInputElement>event.target).value);
+    this.valorAtual = (<HTMLInputElement>event.target).value;
+  }
+
+  salvarValor(value: any) {
+    this.valorSalvo = value
+  }
+
+  onMouseOver() {
+    this.isMouseOver = !this.isMouseOver;
+  }
+
+  onMouseOverOut() {
+    this.isMouseOver = !this.isMouseOver;
   }
 }

@@ -6,6 +6,7 @@ import { MeuPrimeiroComponent } from './meu-primeiro/meu-primeiro.component';
 import { MeuPrimeiro2Component } from './meu-primeiro2/meu-primeiro2.component';
 import {CursosModule} from './cursos/cursos.module';
 import { DataBidingComponent } from './data-biding/data-biding.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DataBidingComponent } from './data-biding/data-biding.component';
   ],
   imports: [
     BrowserModule,
-    CursosModule
+    CursosModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
