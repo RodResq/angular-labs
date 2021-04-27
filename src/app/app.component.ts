@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-labs';
+
+  valor: number = 5;
+
+  mudarValor() {
+    this.valor++;
+  }
 }
