@@ -26,6 +26,8 @@ export class DataBidingComponent implements OnInit {
 
   nome: string = 'abc';
 
+  nomeCurso: string = 'Angular';
+
   pessoa: any = {
       nome: 'def',
       idade: 20

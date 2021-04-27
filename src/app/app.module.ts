@@ -9,6 +9,7 @@ import { DataBidingComponent } from './data-biding/data-biding.component';
 import {FormsModule} from '@angular/forms';
 import {MeuFormModule} from './meu-form/meu-form.module';
 import { InputPropertyComponent } from './input-property/input-property.component';
+import { OutputPropertyComponent } from './output-property/output-property.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { InputPropertyComponent } from './input-property/input-property.componen
     MeuPrimeiro2Component,
     DataBidingComponent,
     InputPropertyComponent,
+    OutputPropertyComponent,
   ],
   imports: [
     BrowserModule,
