@@ -83,29 +83,4 @@
 <!--    >Passe o mouse em min!</span>-->
 <!--  </article>-->
 <!--</section>-->
-<section>
-  <br><br>
-  <article>
-    <h3>Two-way data Biding</h3>
-    <div>
-      <input type="text"
-        [value]="nome" (input)="nome = $event.target.value" />
-      <br>
-      <input type="text"
-             [ngModel]="nome"
-             (ngModelChange)="nome = $event"
-      />
-      <br>
-      <input type="text"
-        [(ngModel)]="nome" />
-      <p>Voce digitou o nome {{ nome }}</p>
-    </div>
-    <br><br>
-
-    <div>
-      <p>Meu nome {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade.</p>
-      <input type="text" [(ngModel)]="pessoa.nome">
-      <input type="text" [(ngModel)]="pessoa.idade">
-    </div>
-  </article>
-</section>
+<meu-form></meu-form>

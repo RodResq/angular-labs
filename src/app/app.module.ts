@@ -7,6 +7,8 @@ import { MeuPrimeiro2Component } from './meu-primeiro2/meu-primeiro2.component';
 import {CursosModule} from './cursos/cursos.module';
 import { DataBidingComponent } from './data-biding/data-biding.component';
 import {FormsModule} from '@angular/forms';
+import {MeuFormModule} from './meu-form/meu-form.module';
+import { InputPropertyComponent } from './input-property/input-property.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import {FormsModule} from '@angular/forms';
     MeuPrimeiroComponent,
     MeuPrimeiro2Component,
     DataBidingComponent,
+    InputPropertyComponent,
   ],
   imports: [
     BrowserModule,
     CursosModule,
-    FormsModule
+    FormsModule,
+    MeuFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
