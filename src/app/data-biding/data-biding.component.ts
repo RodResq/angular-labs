@@ -26,6 +26,11 @@ export class DataBidingComponent implements OnInit {
 
   nome: string = 'abc';
 
+  pessoa: any = {
+      nome: 'def',
+      idade: 20
+  }
+
   constructor() { }
 
   ngOnInit(): void {
