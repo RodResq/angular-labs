@@ -37,7 +37,8 @@
       Texto coloorido conforme combobox
     </div>
     <br><br>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert"
+      [style.display]="classe.value == 'alert-danger' ? 'block': 'none'">
       Texto So aparece em caso de error
     </div>
 
