@@ -17,6 +17,6 @@ export class AppComponent {
   }
 
   destruirCiclo() {
-
+    this.deletarCiclo = true;
   }
 }
