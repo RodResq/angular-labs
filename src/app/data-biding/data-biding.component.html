@@ -1,14 +1,32 @@
 <section>
-    <article>
-      <h3>Interpolation / interpolacao</h3>
-      <p>String rendereizada com interpolacao {{ url }}</p>
-      <p>Resultado de 1 + 1 =  {{ 1 + 1 }}</p>
-      <p>Resultado de 1 + 1 =  {{ 1 + 1 + getValor() }}</p>
-      <p>Expressoes Logicas Booleanas {{ cursoAngular && getCurtirCurso() }}</p>
-    </article>
+<!--    <article>-->
+<!--      <h3>Interpolation / interpolacao</h3>-->
+<!--      <p>String rendereizada com interpolacao {{ url }}</p>-->
+<!--      <p>Resultado de 1 + 1 =  {{ 1 + 1 }}</p>-->
+<!--      <p>Resultado de 1 + 1 =  {{ 1 + 1 + getValor() }}</p>-->
+<!--      <p>Expressoes Logicas Booleanas {{ cursoAngular && getCurtirCurso() }}</p>-->
+<!--    </article>-->
 
+<!--  <article>-->
+<!--    <img src="{{ urlImage }}">-->
+<!--    <img [src]="urlImage">-->
+<!--  </article>-->
+  <br><br>
   <article>
-    <img src="{{ urlImage }}">
-    <img [src]="urlImage">
+    <h3>Class e Style Binding</h3>
+    <div>
+      Selecione uma classe:
+      <select #classe (change)="0">
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-success">Info</option>
+        <option value="alert-success">Alerta</option>
+        <option value="alert-success">Erro</option>
+      </select>
+      <br><br>
+      <div class="alert" role="alert">Sucesso</div>
+      <div class="alert" role="alert">Info</div>
+      <div class="alert" role="alert">Alerta</div>
+      <div class="alert" role="alert">Erro</div>
+    </div>
   </article>
 </section>
