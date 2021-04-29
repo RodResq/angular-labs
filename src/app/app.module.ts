@@ -12,6 +12,7 @@ import { InputPropertyComponent } from './input-property/input-property.componen
 import { OutputPropertyComponent } from './output-property/output-property.component';
 import { CicloComponent } from './ciclo/ciclo.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
+import { DiretivaNgIfComponent } from './diretiva-ng-if/diretiva-ng-if.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DiretivasComponent } from './diretivas/diretivas.component';
     OutputPropertyComponent,
     CicloComponent,
     DiretivasComponent,
+    DiretivaNgIfComponent,
   ],
   imports: [
     BrowserModule,
