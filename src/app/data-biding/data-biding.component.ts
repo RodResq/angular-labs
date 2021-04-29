@@ -38,6 +38,8 @@ export class DataBidingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('aqui');
+    
   }
 
   getValor() {
