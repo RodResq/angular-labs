@@ -1,1 +1,17 @@
-<p>diretiva-ng-if works!</p>
+<h5>*ngIg</h5>
+<br>
+<div *ngIf="cursos.length > 0">
+  Lista de Cursos Aqui!
+</div>
+<br>
+<div *ngIf="cursos.length == 0">
+  Nao exite cursos para serem listados.
+</div>
+<br>
+
+<div *ngIf="mostrarCursos">
+  Mostrar Cursos aqui.
+</div>
+<div *ngIf="!mostrarCursos">
+  Nao exite cursos para serem mostrados.
+</div>
