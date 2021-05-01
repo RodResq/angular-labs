@@ -15,6 +15,7 @@ import { DiretivasComponent } from './diretivas/diretivas.component';
 import { DiretivaNgIfComponent } from './diretiva-ng-if/diretiva-ng-if.component';
 import { DiretivaNgswitchComponent } from './diretiva-ngswitch/diretiva-ngswitch.component';
 import { DiretivaNgforComponent } from './diretiva-ngfor/diretiva-ngfor.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DiretivaNgforComponent } from './diretiva-ngfor/diretiva-ngfor.componen
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     CursosModule,
     FormsModule,
     MeuFormModule

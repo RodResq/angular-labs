@@ -29,3 +29,17 @@
 <div [hidden]="mostrarCursos">
   Nao existe cursos a serem mostrados (com hidden).
 </div>
+
+<br>
+
+<div *ngIf="!mostrarCursos">
+</div>
+
+<ng-template [ngIf]="mostrarCursos">
+  <div>
+    Lista de Cursos Aqui!
+  </div>
+</ng-template>
+
+
+
