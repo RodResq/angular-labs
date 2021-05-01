@@ -14,6 +14,7 @@ import { CicloComponent } from './ciclo/ciclo.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
 import { DiretivaNgIfComponent } from './diretiva-ng-if/diretiva-ng-if.component';
 import { DiretivaNgswitchComponent } from './diretiva-ngswitch/diretiva-ngswitch.component';
+import { DiretivaNgforComponent } from './diretiva-ngfor/diretiva-ngfor.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DiretivaNgswitchComponent } from './diretiva-ngswitch/diretiva-ngswitch
     DiretivasComponent,
     DiretivaNgIfComponent,
     DiretivaNgswitchComponent,
+    DiretivaNgforComponent,
   ],
   imports: [
     BrowserModule,
