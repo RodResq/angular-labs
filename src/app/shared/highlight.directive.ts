@@ -17,9 +17,12 @@ export class HighlightDirective {
 
   @Input() defaultColor: string = 'white';
 
-  @Input() hightLoghtColor: string = 'yellow';
+  @Input('highlight') hightLoghtColor: string = 'yellow';
 
   constructor(
   ) { }
 
+  ngOnInit() {
+    this.backgroundColor = this.defaultColor;
+  }
 }
