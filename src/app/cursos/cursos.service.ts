@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {LogService} from '../shared/log.service';
 
 @Injectable({
   providedIn: 'root'
