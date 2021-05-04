@@ -16,10 +16,14 @@ export class CursosComponent implements OnInit {
   constructor(private cursoService: CursosService) {
     this.nomePortal = 'http://loiane.training';
 
-    this.cursos = this.cursoService.getCursos();
   }
 
+
   ngOnInit(): void {
+    this.cursos = this.cursoService.getCursos();
+    this.cursoService.emitirCursoCriado.subscribe(curso => {
+      console.log(curso);
+    })
   }
 
 }
