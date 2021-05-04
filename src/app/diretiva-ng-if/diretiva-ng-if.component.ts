@@ -16,7 +16,7 @@ export class DiretivaNgIfComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onMostrarCursos() {
+  onMostrarCursos(): void {
     this.mostrarCursos = !this.mostrarCursos;
   }
 
