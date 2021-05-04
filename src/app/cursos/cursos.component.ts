@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {CursosService} from './cursos.service';
+import {CursosService} from '../servico-cursos/cursos.service';
 
 @Component({
   selector: 'cursos',
   templateUrl: './cursos.component.html',
-  styleUrls: ['./cursos.component.css']
+  styleUrls: ['./cursos.component.css'],
+  providers: [ CursosService ]
 })
 export class CursosComponent implements OnInit {
 
