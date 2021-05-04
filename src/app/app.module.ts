@@ -27,6 +27,7 @@ import {HighlightDirective} from './shared/highlight.directive';
 import {NgElseDirective} from './shared/ng-else.directive';
 import { ServicoCursosComponent } from './servico-cursos/servico-cursos.component';
 import {CursosService} from './servico-cursos/cursos.service';
+import { CriarCursoComponent } from './criar-curso/criar-curso.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {CursosService} from './servico-cursos/cursos.service';
     HighlightDirective,
     NgElseDirective,
     ServicoCursosComponent,
+    CriarCursoComponent,
   ],
   imports: [
     BrowserModule,
