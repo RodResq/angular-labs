@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {MeuPrimeiroComponent} from './meu-primeiro/meu-primeiro.component';
@@ -65,7 +65,10 @@ import { CamelCasePipe } from './camel-case.pipe';
     CriarCursoModule,
     CursosModule
   ],
-  providers: [ LogService ],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   // providers: [ CursosService ],
   bootstrap: [AppComponent]
 })
