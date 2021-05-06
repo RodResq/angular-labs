@@ -29,6 +29,7 @@ import { ServicoCursosComponent } from './servico-cursos/servico-cursos.componen
 import {CriarCursoModule} from './criar-curso/criar-curso.module';
 import {LogService} from './shared/log.service';
 import {ExemplosPipesComponent} from './exemplos-pipes/exemplos-pipes.component';
+import { CamelCasePipe } from './camel-case.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {ExemplosPipesComponent} from './exemplos-pipes/exemplos-pipes.component'
     HighlightDirective,
     NgElseDirective,
     ServicoCursosComponent,
-    ExemplosPipesComponent
+    ExemplosPipesComponent,
+    CamelCasePipe
   ],
   imports: [
     BrowserModule,

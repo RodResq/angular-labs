@@ -1,6 +1,6 @@
 <h2>Exemplo de uso com pipes.</h2>
 
-<p>Titulo: {{ livro.titulo | uppercase }}</p>
+<p>Titulo: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
 <p>Estrelas: {{ livro.rating | number : '2.1-2' }}</p>
 <p>Paginas: {{ livro.numeroPaginas | number }}</p>
 <p>Preco: {{ livro.preco | currency:'BRL' }}</p>
