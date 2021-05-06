@@ -15,7 +15,7 @@ import {DiretivasComponent} from './diretivas/diretivas.component';
 import {DiretivaNgIfComponent} from './diretiva-ng-if/diretiva-ng-if.component';
 import {DiretivaNgswitchComponent} from './diretiva-ngswitch/diretiva-ngswitch.component';
 import {DiretivaNgforComponent} from './diretiva-ngfor/diretiva-ngfor.component';
-import {CommonModule} from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 import {DiretivaNgclassComponent} from './diretiva-ngclass/diretiva-ngclass.component';
 import {DiretivaNgstyleComponent} from './diretiva-ngstyle/diretiva-ngstyle.component';
 import {OperadorElvisComponent} from './operador-elvis/operador-elvis.component';
@@ -30,6 +30,10 @@ import {CriarCursoModule} from './criar-curso/criar-curso.module';
 import {LogService} from './shared/log.service';
 import {ExemplosPipesComponent} from './exemplos-pipes/exemplos-pipes.component';
 import { CamelCasePipe } from './camel-case.pipe';
+import localePt from '@angular/common/locales/pt'
+import {SettingsService} from './settings.service';
+
+registerLocaleData(localePt, 'pt-BR')
 
 @NgModule({
   declarations: [
@@ -65,10 +69,16 @@ import { CamelCasePipe } from './camel-case.pipe';
     CriarCursoModule,
     CursosModule
   ],
-  providers: [{
-    provide: LOCALE_ID,
-    useValue: 'pt-BR'
-  }],
+  providers: [
+    // provide: LOCALE_ID,
+    // useValue: 'pt-BR'
+    SettingsService, //usando um servico como um provider -> importantissimo para fazer alguma config. global para toda a aplicacao.
+    {
+        provide: LOCALE_ID,
+        deps: [SettingsService],
+        useFactory: (settingsService) => settingsService.getLocale()
+    }
+  ],
   // providers: [ CursosService ],
   bootstrap: [AppComponent]
 })
