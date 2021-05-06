@@ -1,1 +1,10 @@
-<p>exemplos-pipes works!</p>
+<h2>Exemplo de uso com pipes.</h2>
+
+<p>Titulo: {{ livro.titulo | uppercase }}</p>
+<p>Estrelas: {{ livro.rating | number : '2.1-2' }}</p>
+<p>Paginas: {{ livro.numeroPaginas | number }}</p>
+<p>Preco: {{ livro.preco | currency:'BRL' }}</p>
+<p>Data Lancamento: {{ livro.dataLancamento | date:'dd/M/yyyy'}}</p>
+<p>Url: {{ livro.url }}</p>
+<br>
+<p>Livro: {{ livro | json }}</p>

@@ -28,6 +28,7 @@ import {NgElseDirective} from './shared/ng-else.directive';
 import { ServicoCursosComponent } from './servico-cursos/servico-cursos.component';
 import {CriarCursoModule} from './criar-curso/criar-curso.module';
 import {LogService} from './shared/log.service';
+import {ExemplosPipesComponent} from './exemplos-pipes/exemplos-pipes.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {LogService} from './shared/log.service';
     HighlightDirective,
     NgElseDirective,
     ServicoCursosComponent,
+    ExemplosPipesComponent
   ],
   imports: [
     BrowserModule,
