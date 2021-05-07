@@ -34,6 +34,9 @@ import localePt from '@angular/common/locales/pt'
 import {SettingsService} from './settings.service';
 import { FiltroArrayPipe } from './filtro-array.pipe';
 import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import {routing} from './app.routing';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -63,7 +66,9 @@ registerLocaleData(localePt, 'pt-BR')
     ExemplosPipesComponent,
     CamelCasePipe,
     FiltroArrayPipe,
-    FiltroArrayImpuroPipe
+    FiltroArrayImpuroPipe,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,8 @@ registerLocaleData(localePt, 'pt-BR')
     FormsModule,
     MeuFormModule,
     CriarCursoModule,
-    CursosModule
+    CursosModule,
+    routing
   ],
   providers: [
     // provide: LOCALE_ID,
