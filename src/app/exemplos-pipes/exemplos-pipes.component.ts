@@ -16,6 +16,11 @@ export class ExemplosPipesComponent implements OnInit {
     url: 'http://a.co/glqjpRP'
   };
 
+  // Util para pegar valores do servidor.
+  valorAsync = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Valor Assincorno'), 2000);
+  });
+
   livros: string[] = ['Java', 'Angular'];
 
   filtro: string;
@@ -38,5 +43,8 @@ export class ExemplosPipesComponent implements OnInit {
       return false;
     });
   }
+
+
+
 
 }
