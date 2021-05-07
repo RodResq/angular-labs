@@ -10,8 +10,17 @@
 <p>Livro: {{ livro | json }}</p>
 <br>
 <input type="text" [(ngModel)]="filtro">
+<br>
+<h5>Pipe puro!</h5>
 <ul>
   <li *ngFor="let liv of livros | filtroArray:filtro">
+    {{ liv }}
+  </li>
+</ul>
+
+<h5>Pipe impur0!</h5>
+<ul>
+  <li *ngFor="let liv of obterCursos()">
     {{ liv }}
   </li>
 </ul>
