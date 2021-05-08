@@ -38,6 +38,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {routing} from './app.routing';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
+import {CursosServiceRotasService} from './cursos/cursos-service-rotas.service';
+import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -70,7 +72,8 @@ registerLocaleData(localePt, 'pt-BR')
     FiltroArrayImpuroPipe,
     HomeComponent,
     LoginComponent,
-    CursoDetalheComponent
+    CursoDetalheComponent,
+    CursoNaoEncontradoComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ registerLocaleData(localePt, 'pt-BR')
     routing
   ],
   providers: [
+    CursosServiceRotasService,
     // provide: LOCALE_ID,
     // useValue: 'pt-BR'
     SettingsService, //usando um servico como um provider -> importantissimo para fazer alguma config. global para toda a aplicacao.

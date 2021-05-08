@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subject, Subscription} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {CursosServiceRotasService} from '../cursos/cursos-service-rotas.service';
 
 @Component({
   selector: 'app-curso-detalhe',
@@ -10,13 +11,18 @@ import {takeUntil} from 'rxjs/operators';
 })
 export class CursoDetalheComponent implements OnInit, OnDestroy {
 
-  id: string;
+  curso: any;
+  id: number;
 
   // inscricao: Subscription;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
+  private nomeCurso: string;
 
-  constructor(private activatedRouter: ActivatedRoute) {
+  constructor(
+    private activatedRouter: ActivatedRoute,
+    private cursoServiceParaRota: CursosServiceRotasService,
+    private router: Router) {
     // this.id = this.activatedRouter.snapshot.params['id'];
     // console.log(this.activatedRouter);
   }
@@ -32,7 +38,13 @@ export class CursoDetalheComponent implements OnInit, OnDestroy {
     this.activatedRouter.params
       .pipe(takeUntil(this.destroy$))
       .subscribe(
-        params => this.id = params['id']
+        params => {
+          this.id = params['id'];
+          this.curso = this.cursoServiceParaRota.getCurso(this.id);
+          if(this.curso == null) {
+            this.router.navigate(['cursoNaoEncontrado']);
+          }
+        }
       )
   }
 

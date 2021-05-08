@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {CursosComponent} from './cursos.component';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
 import {CursosService} from '../servico-cursos/cursos.service';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -13,6 +14,7 @@ import {CursosService} from '../servico-cursos/cursos.service';
   ],
   imports: [
     CommonModule,
+    RouterModule
   ],
   exports: [
     CursosComponent
