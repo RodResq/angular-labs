@@ -1,37 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Subject, Subscription} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {CursosService} from '../cursos.service';
 
 @Component({
-  selector: 'curso-detalhe',
+  selector: 'app-curso-detalhe',
   templateUrl: './curso-detalhe.component.html',
   styleUrls: ['./curso-detalhe.component.css']
 })
-export class CursoDetalheComponent implements OnInit {
+export class CursoDetalheComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  curso: any;
+  id: number;
+
+  // inscricao: Subscription;
+
+  destroy$: Subject<boolean> = new Subject<boolean>();
+  private nomeCurso: string;
+
+  constructor(
+    private activatedRouter: ActivatedRoute,
+    private cursosService: CursosService,
+    private router: Router) {
+    // this.id = this.activatedRouter.snapshot.params['id'];
+    // console.log(this.activatedRouter);
+  }
 
   ngOnInit(): void {
+    // this.inscricao = this.activatedRouter.params
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe(
+    //   (params: any ) => {
+    //     this.id = params['id'];
+    //   }
+    // );
+    this.activatedRouter.params
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        params => {
+          this.id = params['id'];
+          this.curso = this.cursosService.getCurso(this.id);
+          if(this.curso == null) {
+            this.router.navigate(['cursoNaoEncontrado']);
+          }
+        }
+      )
   }
 
-  getTranslationMaps(rhyme): any {
-    const rhymes = {
-      "apples and pears": "Stairs",
-      "hampstead heath": "Teeth",
-      "loaf of bread": "Head",
-      "pork pies": "Lies",
-      "whistle and flute": "Suit",
-    };
-    return rhymes[rhyme.toLowerCase()] ?? 'Rhyme not found';
-  }
-
-  calculo(num1: number, num2: number, acao: string): any {
-    const acoes =  {
-      soma: (a, b) => a + b,
-      subtracao: (a, b) => a - b,
-      multiplicacao: (a, b) => a * b,
-      divisao: (a, b) => a /b,
-    };
-
-    return acoes[acao]?.(num1, num2) ?? 'Calculo nao reconhecido'
+  ngOnDestroy() {
+    // this.inscricao.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.unsubscribe();
   }
 
 }

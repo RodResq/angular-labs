@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CursosService} from '../servico-cursos/cursos.service';
-import {CursosServiceRotasService} from './cursos-service-rotas.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {CursosService} from './cursos.service';
 
 @Component({
   selector: 'cursos',
@@ -22,7 +21,6 @@ export class CursosComponent implements OnInit {
 
   constructor(
     private cursoService: CursosService,
-    private cursoServiceRotas: CursosServiceRotasService,
     private activatedRouter: ActivatedRoute,
     private router: Router) {
     this.nomePortal = 'http://loiane.training';
@@ -35,7 +33,7 @@ export class CursosComponent implements OnInit {
     // this.cursoService.emitirCursoCriado.subscribe(curso => {
     //   console.log(curso);
     // })
-    this.cursos = this.cursoServiceRotas.getCursosParaRotas();
+    this.cursos = this.cursoService.getCursos()
     this.activatedRouter.queryParams
       .pipe(takeUntil(this.destroy$))
       .subscribe(

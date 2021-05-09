@@ -25,8 +25,6 @@ import {DiretivasCustomizadasComponent} from './diretivas-customizadas/diretivas
 import {HighlightMouseDirective} from './shared/highlight-mouse.directive';
 import {HighlightDirective} from './shared/highlight.directive';
 import {NgElseDirective} from './shared/ng-else.directive';
-import { ServicoCursosComponent } from './servico-cursos/servico-cursos.component';
-import {CriarCursoModule} from './criar-curso/criar-curso.module';
 import {LogService} from './shared/log.service';
 import {ExemplosPipesComponent} from './exemplos-pipes/exemplos-pipes.component';
 import { CamelCasePipe } from './camel-case.pipe';
@@ -37,9 +35,6 @@ import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 // import {routing} from './app.routing';
-import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
-import {CursosServiceRotasService} from './cursos/cursos-service-rotas.service';
-import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
 import {AppRoutingModule} from './app.routing.module';
 
 registerLocaleData(localePt, 'pt-BR')
@@ -66,28 +61,23 @@ registerLocaleData(localePt, 'pt-BR')
     HighlightMouseDirective,
     HighlightDirective,
     NgElseDirective,
-    ServicoCursosComponent,
     ExemplosPipesComponent,
     CamelCasePipe,
     FiltroArrayPipe,
     FiltroArrayImpuroPipe,
     HomeComponent,
     LoginComponent,
-    CursoDetalheComponent,
-    CursoNaoEncontradoComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
     MeuFormModule,
-    CriarCursoModule,
     CursosModule,
     AppRoutingModule
     // routing
   ],
   providers: [
-    CursosServiceRotasService,
     // provide: LOCALE_ID,
     // useValue: 'pt-BR'
     SettingsService, //usando um servico como um provider -> importantissimo para fazer alguma config. global para toda a aplicacao.
