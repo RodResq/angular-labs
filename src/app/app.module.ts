@@ -25,17 +25,17 @@ import {DiretivasCustomizadasComponent} from './diretivas-customizadas/diretivas
 import {HighlightMouseDirective} from './shared/highlight-mouse.directive';
 import {HighlightDirective} from './shared/highlight.directive';
 import {NgElseDirective} from './shared/ng-else.directive';
-import {LogService} from './shared/log.service';
 import {ExemplosPipesComponent} from './exemplos-pipes/exemplos-pipes.component';
-import { CamelCasePipe } from './camel-case.pipe';
-import localePt from '@angular/common/locales/pt'
+import {CamelCasePipe} from './camel-case.pipe';
+import localePt from '@angular/common/locales/pt';
 import {SettingsService} from './settings.service';
-import { FiltroArrayPipe } from './filtro-array.pipe';
-import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import {FiltroArrayPipe} from './filtro-array.pipe';
+import {FiltroArrayImpuroPipe} from './filtro-array-impuro.pipe';
+import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
 // import {routing} from './app.routing';
 import {AppRoutingModule} from './app.routing.module';
+import {AlunosModule} from './alunos/alunos.module';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -74,6 +74,7 @@ registerLocaleData(localePt, 'pt-BR')
     FormsModule,
     MeuFormModule,
     CursosModule,
+    AlunosModule,
     AppRoutingModule
     // routing
   ],
