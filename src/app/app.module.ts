@@ -36,10 +36,11 @@ import { FiltroArrayPipe } from './filtro-array.pipe';
 import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import {routing} from './app.routing';
+// import {routing} from './app.routing';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
 import {CursosServiceRotasService} from './cursos/cursos-service-rotas.service';
 import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
+import {AppRoutingModule} from './app.routing.module';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -82,7 +83,8 @@ registerLocaleData(localePt, 'pt-BR')
     MeuFormModule,
     CriarCursoModule,
     CursosModule,
-    routing
+    AppRoutingModule
+    // routing
   ],
   providers: [
     CursosServiceRotasService,
