@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CursosService} from '../servico-cursos/cursos.service';
 import {CursosServiceRotasService} from './cursos-service-rotas.service';
+import {ActivatedRoute} from '@angular/router';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'cursos',
@@ -14,7 +17,13 @@ export class CursosComponent implements OnInit {
 
   cursos: any[];
 
-  constructor(private cursoService: CursosService, private cursoServiceRotas: CursosServiceRotasService) {
+  pagina: number;
+  private destroy$: Subject<boolean> = new Subject<boolean>();
+
+  constructor(
+    private cursoService: CursosService,
+    private cursoServiceRotas: CursosServiceRotasService,
+    private activatedRouter: ActivatedRoute) {
     this.nomePortal = 'http://loiane.training';
 
   }
@@ -26,6 +35,14 @@ export class CursosComponent implements OnInit {
     //   console.log(curso);
     // })
     this.cursos = this.cursoServiceRotas.getCursosParaRotas();
+    this.activatedRouter.queryParams
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+      (queryParams) => this.pagina = queryParams['pagina'])
+  }
+
+  ngOnDestroy() {
+    this.destroy$.unsubscribe();
   }
 
 }
