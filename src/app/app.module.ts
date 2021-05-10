@@ -4,7 +4,6 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {MeuPrimeiroComponent} from './meu-primeiro/meu-primeiro.component';
 import {MeuPrimeiro2Component} from './meu-primeiro2/meu-primeiro2.component';
-import {CursosModule} from './cursos/cursos.module';
 import {DataBidingComponent} from './data-biding/data-biding.component';
 import {FormsModule} from '@angular/forms';
 import {MeuFormModule} from './meu-form/meu-form.module';
@@ -35,7 +34,7 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 // import {routing} from './app.routing';
 import {AppRoutingModule} from './app.routing.module';
-import {AlunosModule} from './alunos/alunos.module';
+// import {AlunosModule} from './alunos/alunos.module';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -73,8 +72,7 @@ registerLocaleData(localePt, 'pt-BR')
     CommonModule,
     FormsModule,
     MeuFormModule,
-    CursosModule,
-    AlunosModule,
+    // AlunosModule,
     AppRoutingModule
     // routing
   ],
