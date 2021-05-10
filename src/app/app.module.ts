@@ -35,6 +35,7 @@ import {LoginComponent} from './login/login.component';
 // import {routing} from './app.routing';
 import {AppRoutingModule} from './app.routing.module';
 import {AuthService} from './login/auth.service';
+import {AuthGuard} from './guards/auth.guard.service';
 // import {AlunosModule} from './alunos/alunos.module';
 
 registerLocaleData(localePt, 'pt-BR')
@@ -78,7 +79,8 @@ registerLocaleData(localePt, 'pt-BR')
     // routing
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard,
     // provide: LOCALE_ID,
     // useValue: 'pt-BR'
     // SettingsService, //usando um servico como um provider -> importantissimo para fazer alguma config. global para toda a aplicacao.
