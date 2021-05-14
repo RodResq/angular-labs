@@ -7,7 +7,7 @@ export class CursosGuard implements CanActivateChild {
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot):
       Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('Gyarda de rota filha');
+    // console.log('Gyarda de rota filha');
     return true;
   }
 

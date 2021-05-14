@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {AlunosService} from '../alunos.service';
 import {takeUntil} from 'rxjs/operators';
+import {getLocaleFirstDayOfWeek} from '@angular/common';
 
 @Component({
   selector: 'app-aluno-form',
@@ -14,6 +15,8 @@ export class AlunoFormComponent implements OnInit {
   aluno: any;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
+
+  private formMudou: boolean = false;
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -32,4 +35,15 @@ export class AlunoFormComponent implements OnInit {
       )
   }
 
+  pudeDesativarRota(): boolean {
+    if(this.formMudou) {
+      confirm('Tem certeza que quer mudar de pagina ?');
+    }
+    return true;
+  };
+
+  onInput() {
+    this.formMudou = true;
+    console.log('mudou');
+  }
 }
