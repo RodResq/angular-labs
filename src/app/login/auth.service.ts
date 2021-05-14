@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private router: Router) { }
 
   fazerLogin(usuario: Usuario) {
-    if(usuario.nome === 'usuario@gmail.com' &&
+    if(usuario.nome === 'usuario@email.com' &&
         usuario.senha === '123456') {
         this.usuarioAutenticado = true;
         this.mostrarMenuEmitter.emit(true)
