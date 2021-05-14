@@ -35,7 +35,7 @@ import {LoginComponent} from './login/login.component';
 // import {routing} from './app.routing';
 import {AppRoutingModule} from './app.routing.module';
 import {AuthService} from './login/auth.service';
-import {AuthGuard} from './guards/auth.guard.service';
+import {AuthGuard} from './guards/auth.guard';
 // import {AlunosModule} from './alunos/alunos.module';
 
 registerLocaleData(localePt, 'pt-BR')

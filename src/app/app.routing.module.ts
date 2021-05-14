@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
-import {AuthGuard} from './guards/auth.guard.service';
+import {AuthGuard} from './guards/auth.guard';
 
 const appRoutes : Routes = [
   { path: 'cursos',
