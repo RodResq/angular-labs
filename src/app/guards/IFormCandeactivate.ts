@@ -1,0 +1,5 @@
+
+export interface IFormCandeactivate {
+
+  podeDesativar();
+}

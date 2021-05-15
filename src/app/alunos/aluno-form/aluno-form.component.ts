@@ -4,13 +4,14 @@ import {ActivatedRoute} from '@angular/router';
 import {AlunosService} from '../alunos.service';
 import {takeUntil} from 'rxjs/operators';
 import {getLocaleFirstDayOfWeek} from '@angular/common';
+import {IFormCandeactivate} from '../../guards/IFormCandeactivate';
 
 @Component({
   selector: 'app-aluno-form',
   templateUrl: './aluno-form.component.html',
   styleUrls: ['./aluno-form.component.css']
 })
-export class AlunoFormComponent implements OnInit {
+export class AlunoFormComponent implements OnInit, IFormCandeactivate {
 
   aluno: any;
 
@@ -35,7 +36,7 @@ export class AlunoFormComponent implements OnInit {
       )
   }
 
-  pudeDesativarRota(): boolean {
+  podeMudar(): boolean {
     if(this.formMudou) {
       confirm('Tem certeza que quer mudar de pagina ?');
     }
@@ -45,5 +46,9 @@ export class AlunoFormComponent implements OnInit {
   onInput() {
     this.formMudou = true;
     console.log('mudou');
+  }
+
+  podeDesativar() {
+    this.podeMudar();
   }
 }

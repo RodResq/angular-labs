@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AlunosService} from '../alunos.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {Aluno} from '../aluno';
 
 @Component({
   selector: 'app-aluno-detalhe',
@@ -11,7 +12,7 @@ import {takeUntil} from 'rxjs/operators';
 })
 export class AlunoDetalheComponent implements OnInit, OnDestroy {
 
-  aluno: any;
+  aluno: Aluno;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -22,12 +23,18 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRouter.params
+    /*this.activatedRouter.params
       .pipe(takeUntil(this.destroy$))
       .subscribe(
       (params:any) => {
         let id = params['id'];
         this.aluno = this.alunoService.getAluno(id);
+      }
+    )*/
+    this.activatedRouter.data.subscribe(
+      (info: {aluno: Aluno}) => {
+        console.log(info);
+        this.aluno = info.aluno;
       }
     )
   }
