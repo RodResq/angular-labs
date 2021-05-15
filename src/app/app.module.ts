@@ -38,6 +38,7 @@ import {AuthService} from './login/auth.service';
 import {AuthGuard} from './guards/auth.guard';
 import {CursosGuard} from './guards/cursos.guard';
 import {AlunosGuard} from './guards/alunos.guard';
+import { PaginaNaoEcontradaComponent } from './pagina-nao-econtrada/pagina-nao-econtrada.component';
 // import {AlunosModule} from './alunos/alunos.module';
 
 registerLocaleData(localePt, 'pt-BR')
@@ -70,6 +71,7 @@ registerLocaleData(localePt, 'pt-BR')
     FiltroArrayImpuroPipe,
     HomeComponent,
     LoginComponent,
+    PaginaNaoEcontradaComponent,
   ],
   imports: [
     BrowserModule,

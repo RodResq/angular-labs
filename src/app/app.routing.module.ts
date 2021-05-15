@@ -6,6 +6,7 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './guards/auth.guard';
 import {CursosGuard} from './guards/cursos.guard';
 import {AlunosGuard} from './guards/alunos.guard';
+import {PaginaNaoEcontradaComponent} from './pagina-nao-econtrada/pagina-nao-econtrada.component';
 
 const appRoutes : Routes = [
   { path: 'cursos',
@@ -19,9 +20,12 @@ const appRoutes : Routes = [
     // canActivateChild: [AlunosGuard],
     loadChildren: () => import('src/app/alunos/alunos.module').then(m => m.AlunosModule)},
   { path: 'login', component: LoginComponent},
-  { path: '',
-    canActivate: [AuthGuard],
-    component: HomeComponent}
+  { path: 'home', canActivate: [AuthGuard], component: HomeComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '**', component: PaginaNaoEcontradaComponent,
+    // canActivate: [AuthGuard] //redireciona para pagina de login caso nao encontre a pagina!
+  }
+
 ];
 
 @NgModule({
