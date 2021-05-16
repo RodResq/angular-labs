@@ -27,12 +27,10 @@ import {NgElseDirective} from './shared/ng-else.directive';
 import {ExemplosPipesComponent} from './exemplos-pipes/exemplos-pipes.component';
 import {CamelCasePipe} from './camel-case.pipe';
 import localePt from '@angular/common/locales/pt';
-import {SettingsService} from './settings.service';
 import {FiltroArrayPipe} from './filtro-array.pipe';
 import {FiltroArrayImpuroPipe} from './filtro-array-impuro.pipe';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
-// import {routing} from './app.routing';
 import {AppRoutingModule} from './app.routing.module';
 import {AuthService} from './login/auth.service';
 import {AuthGuard} from './guards/auth.guard';
@@ -40,9 +38,8 @@ import {CursosGuard} from './guards/cursos.guard';
 import {AlunosGuard} from './guards/alunos.guard';
 import { PaginaNaoEcontradaComponent } from './pagina-nao-econtrada/pagina-nao-econtrada.component';
 import { FormsComponent } from './forms/forms.component';
-import { TemplateFormComponent } from './template-form/template-form.component';
 import { DataFormComponent } from './data-form/data-form.component';
-// import {AlunosModule} from './alunos/alunos.module';
+import {TemplateFormModule} from './template-form/template-form.module';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -76,7 +73,6 @@ registerLocaleData(localePt, 'pt-BR')
     LoginComponent,
     PaginaNaoEcontradaComponent,
     FormsComponent,
-    TemplateFormComponent,
     DataFormComponent,
   ],
   imports: [
@@ -84,6 +80,7 @@ registerLocaleData(localePt, 'pt-BR')
     CommonModule,
     FormsModule,
     MeuFormModule,
+    TemplateFormModule,
     // AlunosModule,
     AppRoutingModule
     // routing
