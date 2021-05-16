@@ -39,6 +39,7 @@ import {AuthGuard} from './guards/auth.guard';
 import {CursosGuard} from './guards/cursos.guard';
 import {AlunosGuard} from './guards/alunos.guard';
 import { PaginaNaoEcontradaComponent } from './pagina-nao-econtrada/pagina-nao-econtrada.component';
+import { FormsComponent } from './forms/forms.component';
 // import {AlunosModule} from './alunos/alunos.module';
 
 registerLocaleData(localePt, 'pt-BR')
@@ -72,6 +73,7 @@ registerLocaleData(localePt, 'pt-BR')
     HomeComponent,
     LoginComponent,
     PaginaNaoEcontradaComponent,
+    FormsComponent,
   ],
   imports: [
     BrowserModule,

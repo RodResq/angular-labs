@@ -29,21 +29,23 @@
 <!--<app-servico-cursos></app-servico-cursos>-->
 <!--<app-exemplos-pipes></app-exemplos-pipes>-->
 
-<nav *ngIf="mostartMenu">
-  <div class="nav-wrapper">
-    <a class="brand-logo right">Entendendo Rotas</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
-      <li routerLinkActive="active"><a routerLink="">Home</a></li>
-      <li routerLinkActive="active"><a routerLink="/cursos" [queryParams]="{pagina:1}">Cursos</a></li>
-<!--      <li routerLinkActive="active"><a [routerLink]="['/curso', cursoId.value]">Curso com Id</a></li>-->
-      <li routerLinkActive="active"><a [routerLink]="['/alunos']">Alunos</a></li>
-    </ul>
-  </div>
-</nav>
+<!--<nav *ngIf="mostartMenu">-->
+<!--  <div class="nav-wrapper">-->
+<!--    <a class="brand-logo right">Entendendo Rotas</a>-->
+<!--    <ul id="nav-mobile" class="left hide-on-med-and-down">-->
+<!--      <li routerLinkActive="active"><a routerLink="/login">Login</a></li>-->
+<!--      <li routerLinkActive="active"><a routerLink="">Home</a></li>-->
+<!--      <li routerLinkActive="active"><a routerLink="/cursos" [queryParams]="{pagina:1}">Cursos</a></li>-->
+<!--&lt;!&ndash;      <li routerLinkActive="active"><a [routerLink]="['/curso', cursoId.value]">Curso com Id</a></li>&ndash;&gt;-->
+<!--      <li routerLinkActive="active"><a [routerLink]="['/alunos']">Alunos</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
 
-<div class="container">
+<!--<div class="container">-->
 <!--  <p>Entre com o id do curso</p>-->
 <!--  <input type="text" #cursoId>-->
-  <router-outlet></router-outlet>
-</div>
+<!--  <router-outlet></router-outlet>-->
+<!--</div>-->
+
+<app-forms></app-forms>
