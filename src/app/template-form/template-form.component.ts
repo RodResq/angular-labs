@@ -12,4 +12,7 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(f: any) {
+    console.log(f);
+  }
 }
