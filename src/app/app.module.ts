@@ -40,6 +40,8 @@ import {CursosGuard} from './guards/cursos.guard';
 import {AlunosGuard} from './guards/alunos.guard';
 import { PaginaNaoEcontradaComponent } from './pagina-nao-econtrada/pagina-nao-econtrada.component';
 import { FormsComponent } from './forms/forms.component';
+import { TemplateFormComponent } from './template-form/template-form.component';
+import { DataFormComponent } from './data-form/data-form.component';
 // import {AlunosModule} from './alunos/alunos.module';
 
 registerLocaleData(localePt, 'pt-BR')
@@ -74,6 +76,8 @@ registerLocaleData(localePt, 'pt-BR')
     LoginComponent,
     PaginaNaoEcontradaComponent,
     FormsComponent,
+    TemplateFormComponent,
+    DataFormComponent,
   ],
   imports: [
     BrowserModule,
