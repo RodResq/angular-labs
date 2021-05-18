@@ -21,4 +21,15 @@ export class TemplateFormComponent implements OnInit {
 
     console.log(this.usuario);
   }
+
+  isValidTouched(campo) {
+    return !campo.valid && campo.touched;
+  }
+
+  aplicaCssErro(campo) {
+    return {
+      'has-error': this.isValidTouched(campo),
+      'has-feedback': this.isValidTouched(campo)
+    }
+  }
 }
