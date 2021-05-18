@@ -8,7 +8,7 @@
     <div class="col-sm-12">
       <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" [(ngModel)]="usuario.nome" required #nome="ngModel">
       <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!nome.valid && nome.touched"></span>
-      <span id="nome" class="sr-only" *ngIf="!nome.valid && nome.touched">(error)</span>
+      <span class="sr-only" *ngIf="!nome.valid && nome.touched">(error)</span>
       <div  *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">
         Nome e obrigatorio!
       </div>
@@ -31,10 +31,10 @@
     </div>
   </div>
 
-  <div class="form-group"
-   [class.has-error]="!cep.valid && cep.touched"
-   [class.has-feedback]="!cep.valid && cep.touched">
-    <div class="col-md-3">
+  <div class="form-group">
+    <div class="col-md-3"
+     [class.has-error]="!cep.valid && cep.touched"
+     [class.has-feedback]="!cep.valid && cep.touched">
       <label for="cep" class="control-label">CEP</label>
       <input type="text" class="form-control" id="cep" name="cep" ngModel required #cep="ngModel">
         <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!cep.valid && cep.touched"></span>
@@ -43,7 +43,9 @@
           CEP e Obrigatorio!
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3"
+     [class.has-error]="!numero.valid && numero.touched"
+     [class.has-feedback]="!numero.valid && numero.touched">
       <label for="cep" class="control-label">Numero</label>
       <input type="text" class="form-control" id="numero" name="numero" ngModel required #numero="ngModel">
       <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!numero.valid && numero.touched"></span>
@@ -55,6 +57,51 @@
     <div class="col-md-6">
       <label for="cep" class="control-label">Complemento</label>
       <input type="text" class="form-control" id="complemento" name="complemento" ngModel #complemento="ngModel">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label class="control-label" for="rua">Rua</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="rua" name="rua" [(ngModel)]="usuario.rua" required #rua="ngModel" readonly>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-5"
+     [class.has-error]="!bairro.valid && bairro.touched"
+     [class.has-feedback]="!bairro.valid && bairro.touched">
+      <label for="cep" class="control-label">Bairro</label>
+      <input type="text" class="form-control" id="bairro" name="bairro" ngModel required #bairro="ngModel">
+      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!bairro.valid && bairro.touched"></span>
+      <span class="sr-only" *ngIf="!bairro.valid && bairro.touched">(error)</span>
+      <div class="alert alert-danger" role="alert" *ngIf="!bairro.valid && bairro.touched">
+        Bairro e Obrigatorio!
+      </div>
+    </div>
+    <div class="col-md-4"
+         [class.has-error]="!cidade.valid && cidade.touched"
+         [class.has-feedback]="!cidade.valid && cidade.touched">
+      <label for="cep" class="control-label">Cidade</label>
+      <input type="text" class="form-control" id="cidade" name="cidade" ngModel required #cidade="ngModel">
+      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!cidade.valid && cidade.touched"></span>
+      <span class="sr-only" *ngIf="!bairro.valid && bairro.touched">(error)</span>
+      <div class="alert alert-danger" role="alert" *ngIf="!cidade.valid && cidade.touched">
+        Cidade e Obrigatoria!
+      </div>
+    </div>
+    <div class="col-md-3"
+         [class.has-error]="!estado.valid && estado.touched"
+         [class.has-feedback]="!estado.valid && estado.touched">
+      <label for="cep" class="control-label">Estado</label>
+      <input type="text" class="form-control" id="estado" name="estado" ngModel required #estado="ngModel">
+      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!estado.valid && estado.touched"></span>
+      <span class="sr-only" *ngIf="!estado.valid && estado.touched">(error)</span>
+      <div class="alert alert-danger" role="alert" *ngIf="!estado.valid && estado.touched">
+        Estado e Obrigatorio!
+      </div>
     </div>
   </div>
 
