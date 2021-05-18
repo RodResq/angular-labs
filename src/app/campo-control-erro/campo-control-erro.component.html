@@ -1,1 +1,9 @@
-<p>campo-control-erro works!</p>
+
+<div *ngIf="mostraError">
+  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+    <span class="sr-only">(error)</span>
+    <div class="alert alert-danger" role="alert">
+      {{msgError}}
+  </div>
+</div>
+
