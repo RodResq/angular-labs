@@ -40,6 +40,7 @@ import { PaginaNaoEcontradaComponent } from './pagina-nao-econtrada/pagina-nao-e
 import { FormsComponent } from './forms/forms.component';
 import { DataFormComponent } from './data-form/data-form.component';
 import {TemplateFormModule} from './template-form/template-form.module';
+import {HttpClientModule} from '@angular/common/http';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -81,6 +82,7 @@ registerLocaleData(localePt, 'pt-BR')
     FormsModule,
     MeuFormModule,
     TemplateFormModule,
+    HttpClientModule,
     // AlunosModule,
     AppRoutingModule
     // routing
