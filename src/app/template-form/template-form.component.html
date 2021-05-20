@@ -89,7 +89,7 @@
   <div class="container-fluid">
     <div class="row">
       <button type="submit" class="btn btn-primary col-md-2" [disabled]="!f.valid">Submit</button>
-      <button type="button" class="btn btn-danger col-md-2 col-md-offset-8" [disabled]="!f.valid" (click)="resetForm(f)">Cancelar</button>
+      <button type="button" class="btn btn-danger col-md-2 col-md-offset-8" (click)="resetForm(f)">Cancelar</button>
     </div>
   </div>
   <app-form-debug [form]="f"></app-form-debug>
