@@ -28,7 +28,7 @@
           <div class="col-md-3"
            [ngClass]="aplicaCssErro(cep)">
             <label for="cep" class="control-label">CEP</label>
-            <input type="text" class="form-control" id="cep" name="cep" ngModel required #cep="ngModel" (blur)="consultaCEP($event.target.value)">
+            <input type="text" class="form-control" id="cep" name="cep" ngModel required #cep="ngModel" (blur)="consultaCEP($event.target.value, f)">
             <app-campo-control-erro
               [mostraError]="isValidTouched(cep)"
               [msgError]="'CEP e Obrigatorio!'">
@@ -52,7 +52,7 @@
         <div class="form-group">
           <div class="col-sm-12">
             <label class="control-label" for="rua">Rua</label>
-            <input type="text" class="form-control" id="rua" name="rua" [(ngModel)]="usuario.rua" required #rua="ngModel" readonly>
+            <input type="text" class="form-control" id="rua" name="rua" ngModel required #rua="ngModel" readonly>
           </div>
         </div>
 
@@ -86,6 +86,11 @@
           </div>
         </div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+  <div class="container-fluid">
+    <div class="row">
+      <button type="submit" class="btn btn-primary col-md-2" [disabled]="!f.valid">Submit</button>
+      <button type="button" class="btn btn-danger col-md-2 col-md-offset-8" [disabled]="!f.valid" (click)="resetForm(f)">Cancelar</button>
+    </div>
+  </div>
   <app-form-debug [form]="f"></app-form-debug>
 </form>
