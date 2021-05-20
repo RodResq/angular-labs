@@ -14,7 +14,7 @@ const appRoutes : Routes = [
   //##################### Modulo de Formulario ##########################################
   { path: 'templateForm', component: TemplateFormComponent},
   { path: 'dataForm', component: DataFormComponent},
-  { path: '', redirectTo: 'templateForm', pathMatch: 'full'}
+  { path: '', redirectTo: 'dataForm', pathMatch: 'full'}
 
   // #################### Alteracoes ate o module de rotas ##############################
   // { path: 'cursos',

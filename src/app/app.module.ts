@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {MeuPrimeiroComponent} from './meu-primeiro/meu-primeiro.component';
 import {MeuPrimeiro2Component} from './meu-primeiro2/meu-primeiro2.component';
 import {DataBidingComponent} from './data-biding/data-biding.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MeuFormModule} from './meu-form/meu-form.module';
 import {InputPropertyComponent} from './input-property/input-property.component';
 import {OutputPropertyComponent} from './output-property/output-property.component';
@@ -38,9 +38,9 @@ import {CursosGuard} from './guards/cursos.guard';
 import {AlunosGuard} from './guards/alunos.guard';
 import { PaginaNaoEcontradaComponent } from './pagina-nao-econtrada/pagina-nao-econtrada.component';
 import { FormsComponent } from './forms/forms.component';
-import { DataFormComponent } from './data-form/data-form.component';
 import {TemplateFormModule} from './template-form/template-form.module';
 import {HttpClientModule} from '@angular/common/http';
+import {DataFormModule} from './data-form/data-form.module';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -74,14 +74,15 @@ registerLocaleData(localePt, 'pt-BR')
     LoginComponent,
     PaginaNaoEcontradaComponent,
     FormsComponent,
-    DataFormComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MeuFormModule,
     TemplateFormModule,
+    DataFormModule,
     HttpClientModule,
     // AlunosModule,
     AppRoutingModule
