@@ -4,16 +4,20 @@
       <label class="control-label" for="nome">Nome</label>
       <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
       <app-campo-control-erro
-        [mostraError]="!formulario.get('nome').valid && formulario.get('nome').touched"
+        [mostraError]="isValidTouched('nome')"
         [msgError]="'Nome e obrigatorio!'">
       </app-campo-control-erro>
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" [ngClass]="aplicaCssErro('email')">
     <div class="col-sm-12">
       <label class="control-label" for="email">Email</label>
       <input type="email" class="form-control" id="email" placeholder="nome@email.com" formControlName="email">
+      <app-campo-control-erro
+        [mostraError]="isValidTouched('email')"
+        [msgError]="'Email e obrigatorio!'">
+      </app-campo-control-erro>
     </div>
   </div>
 
