@@ -18,6 +18,10 @@
         [mostraError]="isValidTouched('email')"
         [msgError]="'Email e obrigatorio!'">
       </app-campo-control-erro>
+      <app-campo-control-erro
+        [mostraError]="verficaEmailInvalido()"
+        [msgError]="'Email e Invalido!'">
+      </app-campo-control-erro>
     </div>
   </div>
 
