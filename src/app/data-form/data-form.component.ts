@@ -52,4 +52,11 @@ export class DataFormComponent implements OnInit {
   resetar() {
     this.formulario.reset()
   }
+
+  verficaEmailInvalido() {
+    let campoEmail = this.formulario.get('email');
+    if(campoEmail.errors) {
+      return campoEmail.errors['email'] && campoEmail.touched;
+    }
+  }
 }
