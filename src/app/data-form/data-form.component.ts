@@ -17,25 +17,27 @@ export class DataFormComponent implements OnInit {
     private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-
-    /*this.formulario = new FormGroup({
-      nome: new FormControl(null),
-      email: new FormControl(null)
-    });**/
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]]
+      email: [null, [Validators.required, Validators.email]],
+      cep: [],
+      numero: [],
+      complemento: [],
+      rua: [],
+      bairro: [],
+      cidade: [],
+      estado: []
     })
   }
 
-  aplicaCssErro(campo) {
+  aplicaCssErro(campo: string) {
     return {
       'has-error': this.isValidTouched(campo),
       'has-feedback': this.isValidTouched(campo)
     }
   }
 
-  isValidTouched(campo) {
+  isValidTouched(campo: string) {
     return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
   }
   onSubmit() {
