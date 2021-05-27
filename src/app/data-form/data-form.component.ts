@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-data-form',
@@ -10,7 +12,9 @@ export class DataFormComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private httpClient: HttpClient) { }
 
   ngOnInit(): void {
 
@@ -19,8 +23,8 @@ export class DataFormComponent implements OnInit {
       email: new FormControl(null)
     });**/
     this.formulario = this.formBuilder.group({
-      nome: [null],
-      email: [null]
+      nome: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]]
     })
   }
 
@@ -33,5 +37,19 @@ export class DataFormComponent implements OnInit {
 
   isValidTouched(campo) {
     return this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+  }
+  onSubmit() {
+    console.log(this.formulario.value);
+    this.httpClient.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
+      .pipe(tap(res => res))
+      .pipe(map(res => res))
+      .subscribe(dados => {
+        console.log(dados)
+        this.resetar();
+      }, (error) => alert(error.message));
+  }
+
+  resetar() {
+    this.formulario.reset()
   }
 }
