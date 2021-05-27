@@ -1,8 +1,12 @@
 <form class="form-horizontal" [formGroup]="formulario">
-  <div class="form-group">
+  <div class="form-group" [ngClass]="aplicaCssErro('nome')">
     <div class="col-sm-12">
       <label class="control-label" for="nome">Nome</label>
       <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+      <app-campo-control-erro
+        [mostraError]="!formulario.get('nome').valid && formulario.get('nome').touched"
+        [msgError]="'Nome e obrigatorio!'">
+      </app-campo-control-erro>
     </div>
   </div>
 

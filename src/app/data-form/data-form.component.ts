@@ -24,4 +24,14 @@ export class DataFormComponent implements OnInit {
     })
   }
 
+  aplicaCssErro(campo) {
+    return {
+      'has-error': this.isValidTouched(campo),
+      'has-feedback': this.isValidTouched(campo)
+    }
+  }
+
+  isValidTouched(campo) {
+    return this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+  }
 }
