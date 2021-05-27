@@ -29,7 +29,7 @@
     <div class="form-group">
       <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.cep')">
         <label for="cep" class="control-label">CEP</label>
-        <input type="text" class="form-control" id="cep" formControlName="cep">
+        <input type="text" class="form-control" id="cep" formControlName="cep" (blur)="consultaCEP()">
         <app-campo-control-erro
           [mostraError]="isValidTouched('endereco.cep')"
           [msgError]="'CEP e Obrigatorio!'">
@@ -51,7 +51,7 @@
     <div class="form-group">
       <div class="col-sm-12">
         <label class="control-label" for="rua">Rua</label>
-        <input type="text" class="form-control" id="rua" readonly>
+        <input type="text" class="form-control" id="rua" readonly formControlName="rua">
       </div>
     </div>
 
