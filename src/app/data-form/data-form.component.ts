@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
 
@@ -40,17 +40,35 @@ export class DataFormComponent implements OnInit {
   }
 
   isValidTouched(campo: string) {
-    return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+    return !this.formulario.get(campo).valid && (this.formulario.get(campo).touched || this.formulario.get(campo).dirty);
   }
+
   onSubmit() {
     console.log(this.formulario.value);
-    this.httpClient.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
-      .pipe(tap(res => res))
-      .pipe(map(res => res))
-      .subscribe(dados => {
-        console.log(dados)
-        this.resetar();
-      }, (error) => alert(error.message));
+    if(this.formulario.valid){
+      this.httpClient.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
+        .pipe(tap(res => res))
+        .pipe(map(res => res))
+        .subscribe(dados => {
+          console.log(dados)
+          this.resetar();
+        }, (error) => alert(error.message));
+    }
+    else {
+      console.log('formulario invalido');
+      this.verificaValidacoesFormulario(this.formulario);
+    }
+  }
+
+  verificaValidacoesFormulario(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(campo => {
+      console.log(campo);
+      const controle = formGroup.get(campo);
+      controle.markAsDirty()
+      if(controle instanceof FormGroup) {
+        this.verificaValidacoesFormulario(controle);
+      }
+    })
   }
 
   resetar() {
@@ -81,6 +99,7 @@ export class DataFormComponent implements OnInit {
   }
 
   populaDadosForm(dados) {
+    //Para setar um conjunto de campos e melhor ultilizar o patchValue
     this.formulario.patchValue({
       endereco: {
         complemento: dados.complemento,
@@ -90,6 +109,8 @@ export class DataFormComponent implements OnInit {
         estado: dados.uf
       }
     })
+    //Para setar um campo em especifico e melhor ultilizar o setValue
+    this.formulario.get('nome').setValue('Rodrigo');
   }
 
   resetForm() {
@@ -103,4 +124,5 @@ export class DataFormComponent implements OnInit {
       }
     })
   }
+
 }
