@@ -36,7 +36,7 @@ export class DataFormComponent implements OnInit {
   }
 
   isValidTouched(campo) {
-    return this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+    return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
   }
   onSubmit() {
     console.log(this.formulario.value);
