@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
+import {EstadoBr} from '../shared/models/estado-br.model';
+import {DropdownService} from '../shared/services/dropdown.service';
 
 @Component({
   selector: 'app-data-form',
@@ -12,9 +14,12 @@ export class DataFormComponent implements OnInit {
 
   formulario: FormGroup;
 
+  estadosBr: EstadoBr[]
+
   constructor(
     private formBuilder: FormBuilder,
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient,
+    private dropDownService: DropdownService) { }
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
@@ -29,7 +34,10 @@ export class DataFormComponent implements OnInit {
         cidade: [null, Validators.required],
         estado: [null, Validators.required]
       })
-    })
+    });
+
+    this.dropDownService.getEstadosBr()
+      .subscribe(dados => console.log(dados));
   }
 
   aplicaCssErro(campo: string) {

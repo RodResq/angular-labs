@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
@@ -10,7 +10,6 @@ export class DropdownService {
   constructor(private httpClient: HttpClient) { }
 
   getEstadosBr() {
-    return this.httpClient.get('assets/dados/estodosbr.json')
-      .pipe(map((response: Response) => response.json()));
+    return this.httpClient.get('./assets/dados/estadosbr.json');
   }
 }
