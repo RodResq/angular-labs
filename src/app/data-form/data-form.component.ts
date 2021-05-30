@@ -6,6 +6,7 @@ import {EstadoBr} from '../shared/models/estado-br.model';
 import {DropdownService} from '../shared/services/dropdown.service';
 import {ConsultaCepService} from '../shared/services/consulta-cep.service';
 import {logger} from 'codelyzer/util/logger';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-data-form',
@@ -16,7 +17,9 @@ export class DataFormComponent implements OnInit {
 
   formulario: FormGroup;
 
-  estadosBr: EstadoBr[]
+  // estadosBr: EstadoBr[]
+
+  estados: Observable<EstadoBr[]>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,8 +42,9 @@ export class DataFormComponent implements OnInit {
       })
     });
 
-    this.dropDownService.getEstadosBr()
-      .subscribe(dados => console.log(dados));
+    // this.dropDownService.getEstadosBr()
+    //   .subscribe(dados => this.estadosBr =dados);
+    this.estados = this.dropDownService.getEstadosBr();
   }
 
   aplicaCssErro(campo: string) {
