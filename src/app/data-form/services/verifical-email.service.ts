@@ -9,6 +9,6 @@ export class VerificalEmailService {
   constructor(private httpClient: HttpClient) { }
 
   verficarEmail(email: string) {
-    return this.httpClient.get('./assets/dados/verificar-email.json')
+    return this.httpClient.get('./assets/dados/verificar-email.json');
   }
 }

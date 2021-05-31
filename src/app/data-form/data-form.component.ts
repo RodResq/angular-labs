@@ -8,6 +8,7 @@ import {ConsultaCepService} from '../shared/services/consulta-cep.service';
 import {Observable} from 'rxjs';
 import {ValueConverter} from '@angular/compiler/src/render3/view/template';
 import {FormValidation} from '../shared/services/form-validation';
+import {VerificalEmailService} from './services/verifical-email.service';
 
 @Component({
   selector: 'app-data-form',
@@ -31,9 +32,15 @@ export class DataFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
     private dropDownService: DropdownService,
-    private consultaCepService: ConsultaCepService) { }
+    private consultaCepService: ConsultaCepService,
+    private verificarEmailService: VerificalEmailService) { }
 
   ngOnInit(): void {
+
+    this.verificarEmailService.verficarEmail('').subscribe(email => {
+      console.log(email);
+    });
+
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
