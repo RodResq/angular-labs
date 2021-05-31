@@ -7,7 +7,7 @@ import {DropdownService} from '../shared/services/dropdown.service';
 import {ConsultaCepService} from '../shared/services/consulta-cep.service';
 import {Observable} from 'rxjs';
 import {ValueConverter} from '@angular/compiler/src/render3/view/template';
-import {FormValidatorsService} from '../shared/services/form-validators.service';
+import {FormValidation} from '../shared/services/form-validation';
 
 @Component({
   selector: 'app-data-form',
@@ -42,7 +42,7 @@ export class DataFormComponent implements OnInit {
       newsletter: ['s'],
       termos: [null, Validators.pattern('true')],
       endereco: this.formBuilder.group({
-        cep: [null, Validators.required],
+        cep: [null, [Validators.required, FormValidation.cepValidators]],
         numero: [null, Validators.required],
         complemento: [null],
         rua: [null, Validators.required],
@@ -66,7 +66,7 @@ export class DataFormComponent implements OnInit {
 
   buildFrameworks() {
     const values = this.frameworks.map(v => new FormControl(false));
-    return this.formBuilder.array(values, FormValidatorsService.requiredMinCheckbobx(1));
+    return this.formBuilder.array(values, FormValidation.requiredMinCheckbobx(1));
   }
 
   aplicaCssErro(campo: string) {
@@ -78,6 +78,13 @@ export class DataFormComponent implements OnInit {
 
   isValidTouched(campo: string) {
     return !this.formulario.get(campo).valid && (this.formulario.get(campo).touched || this.formulario.get(campo).dirty);
+  }
+
+  verificaRequired(campo: string) {
+    return (
+      this.formulario.get(campo).hasError('required') &&
+      (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
+    );
   }
 
   onSubmit() {

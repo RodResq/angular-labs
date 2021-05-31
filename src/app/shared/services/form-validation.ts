@@ -1,6 +1,6 @@
-import {FormArray} from '@angular/forms';
+import {FormArray, FormControl} from '@angular/forms';
 
-export class FormValidatorsService {
+export class FormValidation {
 
   static requiredMinCheckbobx( min= 1) {
     const validator = (formArray: FormArray) => {
@@ -17,5 +17,15 @@ export class FormValidatorsService {
       return totalChecked >= min ? null : { required: true };
     }
     return validator;
+  }
+
+  static cepValidators(control: FormControl) {
+    const cep = control.value;
+
+    if(cep && cep != ''){
+      let validacep = /^[0-9]{8}$/;
+      return validacep.test(cep) ? null: { cepInvalido: true};
+    }
+    return null;
   }
 }
