@@ -25,6 +25,17 @@
     </div>
   </div>
 
+  <div class="form-group" [ngClass]="aplicaCssErro('confirmarEmail')">
+    <div class="col-sm-12">
+      <label class="control-label" for="confirmarEmail">Confirmar Email</label>
+      <input type="email" class="form-control" id="confirmarEmail" placeholder="nome@email.com" formControlName="confirmarEmail">
+      <app-campo-control-erro
+        [mostraError]="formulario.get('confirmarEmail').hasError('equalsTo')"
+        [msgError]="'Confirmar Email e obrigatorio!'">
+      </app-campo-control-erro>
+    </div>
+  </div>
+
   <div formGroupName="endereco">
     <div class="form-group">
       <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.cep')">

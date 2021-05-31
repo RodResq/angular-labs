@@ -37,6 +37,7 @@ export class DataFormComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
+      confirmarEmail: [null, FormValidation.equalsTo('email')],
       cargo: [null],
       tecnologias: [null],
       newsletter: ['s'],
@@ -91,7 +92,7 @@ export class DataFormComponent implements OnInit {
     console.log(this.formulario.value);
 
     let valueSubmit = Object.assign({}, this.formulario.value);
-
+    console.log(valueSubmit);
     valueSubmit = Object.assign(valueSubmit, {
       frameworks: valueSubmit.frameworks
         .map((v, i) => v ? this.frameworks[i] : null)
