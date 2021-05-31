@@ -23,6 +23,7 @@ export class DataFormComponent implements OnInit {
 
   cargos: any[];
   tecnologias: any[];
+  newsLetterOp: any[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,6 +37,7 @@ export class DataFormComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       cargo: [null],
       tecnologias: [null],
+      newsletter: ['s'],
       endereco: this.formBuilder.group({
         cep: [null, Validators.required],
         numero: [null, Validators.required],
@@ -54,6 +56,8 @@ export class DataFormComponent implements OnInit {
     this.cargos = this.dropDownService.getCargos();
 
     this.tecnologias = this.dropDownService.getTecnologias();
+
+    this.newsLetterOp = this.dropDownService.getNewsletter();
   }
 
   aplicaCssErro(campo: string) {
