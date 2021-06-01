@@ -11,6 +11,10 @@ export class InputFieldComponent implements OnInit {
 
   @Input() id: string;
 
+  @Input() label: string;
+
+  @Input() type = 'text';
+
   constructor() { }
 
   ngOnInit(): void {

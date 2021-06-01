@@ -1,6 +1,6 @@
 <div class="form-group" [ngClass]="classeCss">
     <label class="control-label" [attr.for]="id">Nome</label>
-    <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+    <input [type]="type" class="form-control" [attr.id]="id" placeholder="Nome">
     <app-error-msg
       [control]="formulario.get('nome')"
       label="Nome">
