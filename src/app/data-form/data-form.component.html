@@ -1,4 +1,8 @@
 <form class="form-horizontal" [formGroup]="formulario">
+
+  <app-input-field class="col-sm-12" formControlName="nome" [classeCss]="aplicaCssErro('nome')"
+    id="'nome'" label="Nome" [control]="formulario.get('nome')"></app-input-field>
+
   <div class="form-group" [ngClass]="aplicaCssErro('nome')">
     <div class="col-sm-12">
       <label class="control-label" for="nome">Nome</label>

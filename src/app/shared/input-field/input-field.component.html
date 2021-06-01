@@ -1,8 +1,8 @@
 <div class="form-group" [ngClass]="classeCss">
     <label class="control-label" [attr.for]="id">Nome</label>
-    <input [type]="type" class="form-control" [attr.id]="id" placeholder="Nome">
+    <input [type]="type" class="form-control" [attr.id]="id" [attr.placeholder]="placeholder">
     <app-error-msg
-      [control]="formulario.get('nome')"
-      label="Nome">
+      [control]="control"
+      [label]="label">
     </app-error-msg>
 </div>

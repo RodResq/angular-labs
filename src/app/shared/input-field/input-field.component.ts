@@ -15,6 +15,10 @@ export class InputFieldComponent implements OnInit {
 
   @Input() type = 'text';
 
+  @Input() placeholder: string;
+
+  @Input() control;
+
   constructor() { }
 
   ngOnInit(): void {
