@@ -21,7 +21,8 @@ import { InputFieldComponent } from './input-field/input-field.component';
   exports: [
     FormDebugComponent,
     CampoControlErroComponent,
-    ErrorMsgComponent
+    ErrorMsgComponent,
+    InputFieldComponent
   ],
   providers: [
     DropdownService
