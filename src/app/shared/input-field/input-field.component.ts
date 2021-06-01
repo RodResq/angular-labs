@@ -6,7 +6,10 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./input-field.component.css']
 })
 export class InputFieldComponent implements OnInit {
+
   @Input() classeCss: any;
+
+  @Input() id: string;
 
   constructor() { }
 
