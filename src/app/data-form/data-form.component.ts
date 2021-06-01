@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {map, tap} from 'rxjs/operators';
+import {distinctUntilChanged, map, switchMap, tap} from 'rxjs/operators';
 import {EstadoBr} from '../shared/models/estado-br.model';
 import {DropdownService} from '../shared/services/dropdown.service';
 import {ConsultaCepService} from '../shared/services/consulta-cep.service';
-import {Observable} from 'rxjs';
+import {empty, Observable, of} from 'rxjs';
 import {ValueConverter} from '@angular/compiler/src/render3/view/template';
 import {FormValidation} from '../shared/services/form-validation';
 import {VerificalEmailService} from './services/verifical-email.service';
@@ -58,6 +58,18 @@ export class DataFormComponent implements OnInit {
       }),
       frameworks: this.buildFrameworks(),
     });
+
+    this.formulario.get('endereco.cep').statusChanges
+      .pipe(
+        distinctUntilChanged(),
+        tap(value => console.log('Status do CEP: ', value)),
+        switchMap(status => status === 'VALID' ?
+          this.consultaCepService.consultaCEP(
+            this.formulario.get('endereco.cep').value) :
+            of({})
+        )
+      )
+      .subscribe(dados => dados ? this.populaDadosForm(dados): {});
 
     // this.dropDownService.getEstadosBr()
     //   .subscribe(dados => this.estadosBr =dados);
