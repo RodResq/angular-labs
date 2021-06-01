@@ -37,12 +37,11 @@ export class DataFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.verificarEmailService.verficarEmail('email@email.com').subscribe(email => {
-    });
+    // this.verificarEmailService.verficarEmail('email@email.com').subscribe(email => {});
 
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
+      email: [null, [Validators.required, Validators.email], [this.validarEmail.bind(this)]],
       confirmarEmail: [null, FormValidation.equalsTo('email')],
       cargo: [null],
       tecnologias: [null],
@@ -142,6 +141,11 @@ export class DataFormComponent implements OnInit {
     if(campoEmail.errors) {
       return campoEmail.errors['email'] && campoEmail.touched;
     }
+  }
+
+  validarEmail(formControl: FormControl) {
+    return this.verificarEmailService.verficarEmail(formControl.value)
+      .pipe(map(emailExiste => emailExiste ? {emailInvalido: true}: null));
   }
 
   consultaCEP() {
