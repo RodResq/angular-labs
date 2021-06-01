@@ -3,10 +3,10 @@
     <div class="col-sm-12">
       <label class="control-label" for="nome">Nome</label>
       <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
-      <app-campo-control-erro
-        [mostraError]="isValidTouched('nome')"
-        [msgError]="'Nome e obrigatorio!'">
-      </app-campo-control-erro>
+      <app-error-msg
+        [control]="formulario.get('nome')"
+        label="Nome">
+      </app-error-msg>
     </div>
   </div>
 
