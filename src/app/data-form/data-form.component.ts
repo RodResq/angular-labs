@@ -5,10 +5,11 @@ import {distinctUntilChanged, map, switchMap, tap} from 'rxjs/operators';
 import {EstadoBr} from '../shared/models/estado-br.model';
 import {DropdownService} from '../shared/services/dropdown.service';
 import {ConsultaCepService} from '../shared/services/consulta-cep.service';
-import {Observable, of} from 'rxjs';
+import {empty, Observable, of} from 'rxjs';
 import {FormValidation} from '../shared/services/form-validation';
 import {VerificalEmailService} from './services/verifical-email.service';
 import {BaseFormComponent} from '../shared/base-form/base-form.component';
+import {Cidade} from '../shared/models/cidade';
 
 @Component({
   selector: 'app-data-form',
@@ -18,12 +19,13 @@ import {BaseFormComponent} from '../shared/base-form/base-form.component';
 export class DataFormComponent extends BaseFormComponent implements OnInit {
 
   // formulario: FormGroup;
-  // estadosBr: EstadoBr[]
-  estados: Observable<EstadoBr[]>;
+  estadosBr: EstadoBr[]
+  // estados: Observable<EstadoBr[]>;
   cargos: any[];
   tecnologias: any[];
   newsLetterOp: any[];
   frameworks =  ['Angular', 'React', 'Vue', 'Sencha'];
+  cidades: Cidade[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -71,9 +73,21 @@ export class DataFormComponent extends BaseFormComponent implements OnInit {
       )
       .subscribe(dados => dados ? this.populaDadosForm(dados): {});
 
+    this.formulario.get('endereco.estado').valueChanges
+      .pipe(
+        tap(estado => console.log('O valor do novo estado e ', estado)),
+        map(estado => this.estadosBr.filter(e => e.sigla === estado)),
+        map(estados => estados && estados.length > 0 ? estados[0].id : empty()),
+        switchMap((estadoId: number) => this.dropDownService.getCidades(estadoId)),
+        tap(console.log)
+      )
+      .subscribe(cidades => this.cidades = cidades)
+    // this.dropDownService.getCidades(8).subscribe(console.log);
+
     // this.dropDownService.getEstadosBr()
     //   .subscribe(dados => this.estadosBr =dados);
-    this.estados = this.dropDownService.getEstadosBr();
+    this.dropDownService.getEstadosBr()
+      .subscribe(estados => this.estadosBr = estados);
 
     this.cargos = this.dropDownService.getCargos();
 
