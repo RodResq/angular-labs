@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {distinctUntilChanged, map, switchMap, tap} from 'rxjs/operators';
 import {EstadoBr} from '../shared/models/estado-br.model';
 import {DropdownService} from '../shared/services/dropdown.service';
 import {ConsultaCepService} from '../shared/services/consulta-cep.service';
-import {empty, Observable, of} from 'rxjs';
-import {ValueConverter} from '@angular/compiler/src/render3/view/template';
+import {Observable, of} from 'rxjs';
 import {FormValidation} from '../shared/services/form-validation';
 import {VerificalEmailService} from './services/verifical-email.service';
 import {BaseFormComponent} from '../shared/base-form/base-form.component';
@@ -95,17 +94,6 @@ export class DataFormComponent extends BaseFormComponent implements OnInit {
     }
   }
 
-  isValidTouched(campo: string) {
-    return !this.formulario.get(campo).valid && (this.formulario.get(campo).touched || this.formulario.get(campo).dirty);
-  }
-
-  verificaRequired(campo: string) {
-    return (
-      this.formulario.get(campo).hasError('required') &&
-      (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
-    );
-  }
-
   submit() {
     let valueSubmit = Object.assign({}, this.formulario.value);
     console.log(valueSubmit);
@@ -132,28 +120,6 @@ export class DataFormComponent extends BaseFormComponent implements OnInit {
     } else {
       console.log('formulario invalido');
       this.verificaValidacoesFormulario(this.formulario);
-    }
-  }
-
-  verificaValidacoesFormulario(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(campo => {
-      console.log(campo);
-      const controle = formGroup.get(campo);
-      controle.markAsDirty()
-      if(controle instanceof FormGroup) {
-        this.verificaValidacoesFormulario(controle);
-      }
-    })
-  }
-
-  resetar() {
-    this.formulario.reset()
-  }
-
-  verficaEmailInvalido() {
-    let campoEmail = this.formulario.get('email');
-    if(campoEmail.errors) {
-      return campoEmail.errors['email'] && campoEmail.touched;
     }
   }
 
