@@ -5,6 +5,7 @@ import {CampoControlErroComponent} from './campo-control-erro/campo-control-erro
 import {DropdownService} from './services/dropdown.service';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { InputFieldComponent } from './input-field/input-field.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -16,7 +17,8 @@ import { InputFieldComponent } from './input-field/input-field.component';
     InputFieldComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     FormDebugComponent,

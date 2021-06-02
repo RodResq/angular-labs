@@ -1,9 +1,9 @@
 <form class="form-horizontal" [formGroup]="formulario">
 
-  <app-input-field class="col-sm-12" formControlName="nome" [classeCss]="aplicaCssErro('nome')"
-    id="'nome'" label="Nome" [control]="formulario.get('nome')"></app-input-field>
+  <app-input-field class="col-sm-12"  [classeCss]="aplicaCssErro('nome')" formControlName="nome"
+    id="'nome'" label="Nome" [control]="formulario.get('nome')" placeholder="Nome"></app-input-field>
 
-  <div class="form-group" [ngClass]="aplicaCssErro('nome')">
+  <!-- div class="form-group" [ngClass]="aplicaCssErro('nome')">
     <div class="col-sm-12">
       <label class="control-label" for="nome">Nome</label>
       <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
@@ -12,7 +12,7 @@
         label="Nome">
       </app-error-msg>
     </div>
-  </div>
+  </div -->
 
   <div class="form-group" [ngClass]="aplicaCssErro('email')">
     <div class="col-sm-12">
