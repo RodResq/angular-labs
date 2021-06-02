@@ -9,20 +9,18 @@ import {empty, Observable, of} from 'rxjs';
 import {ValueConverter} from '@angular/compiler/src/render3/view/template';
 import {FormValidation} from '../shared/services/form-validation';
 import {VerificalEmailService} from './services/verifical-email.service';
+import {BaseFormComponent} from '../shared/base-form/base-form.component';
 
 @Component({
   selector: 'app-data-form',
   templateUrl: './data-form.component.html',
   styleUrls: ['./data-form.component.css']
 })
-export class DataFormComponent implements OnInit {
+export class DataFormComponent extends BaseFormComponent implements OnInit {
 
-  formulario: FormGroup;
-
+  // formulario: FormGroup;
   // estadosBr: EstadoBr[]
-
   estados: Observable<EstadoBr[]>;
-
   cargos: any[];
   tecnologias: any[];
   newsLetterOp: any[];
@@ -33,7 +31,10 @@ export class DataFormComponent implements OnInit {
     private httpClient: HttpClient,
     private dropDownService: DropdownService,
     private consultaCepService: ConsultaCepService,
-    private verificarEmailService: VerificalEmailService) { }
+    private verificarEmailService: VerificalEmailService)
+  {
+    super();
+  }
 
   ngOnInit(): void {
 
@@ -105,9 +106,7 @@ export class DataFormComponent implements OnInit {
     );
   }
 
-  onSubmit() {
-    console.log(this.formulario.value);
-
+  submit() {
     let valueSubmit = Object.assign({}, this.formulario.value);
     console.log(valueSubmit);
     valueSubmit = Object.assign(valueSubmit, {
@@ -115,19 +114,22 @@ export class DataFormComponent implements OnInit {
         .map((v, i) => v ? this.frameworks[i] : null)
         .filter(v => v !== null)
     });
-
     console.log(valueSubmit);
 
+    this.httpClient.post('https://httpbin.org/post', JSON.stringify(valueSubmit))
+      .pipe(tap(res => res))
+      .pipe(map(res => res))
+      .subscribe(dados => {
+        console.log(dados)
+        this.resetar();
+      }, (error) => alert(error.message));
+  }
+
+
+  onSubmit() {
     if(this.formulario.valid){
-      this.httpClient.post('https://httpbin.org/post', JSON.stringify(valueSubmit))
-        .pipe(tap(res => res))
-        .pipe(map(res => res))
-        .subscribe(dados => {
-          console.log(dados)
-          this.resetar();
-        }, (error) => alert(error.message));
-    }
-    else {
+      this.submit();
+    } else {
       console.log('formulario invalido');
       this.verificaValidacoesFormulario(this.formulario);
     }
