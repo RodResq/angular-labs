@@ -41,6 +41,7 @@ import { FormsComponent } from './forms/forms.component';
 import {TemplateFormModule} from './template-form/template-form.module';
 import {HttpClientModule} from '@angular/common/http';
 import {DataFormModule} from './data-form/data-form.module';
+import { RequestHttpComponent } from './request-http/request-http.component';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -74,6 +75,7 @@ registerLocaleData(localePt, 'pt-BR')
     LoginComponent,
     PaginaNaoEcontradaComponent,
     FormsComponent,
+    RequestHttpComponent,
   ],
   imports: [
     BrowserModule,

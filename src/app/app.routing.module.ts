@@ -12,9 +12,9 @@ import {DataFormComponent} from './data-form/data-form.component';
 
 const appRoutes : Routes = [
   //##################### Modulo de Formulario ##########################################
-  { path: 'templateForm', component: TemplateFormComponent},
-  { path: 'dataForm', component: DataFormComponent},
-  { path: '', redirectTo: 'dataForm', pathMatch: 'full'}
+  // { path: 'templateForm', component: TemplateFormComponent},
+  // { path: 'dataForm', component: DataFormComponent},
+  // { path: '', redirectTo: 'dataForm', pathMatch: 'full'}
 
   // #################### Alteracoes ate o module de rotas ##############################
   // { path: 'cursos',
