@@ -9,6 +9,7 @@ import {AlunosGuard} from './guards/alunos.guard';
 import {PaginaNaoEcontradaComponent} from './pagina-nao-econtrada/pagina-nao-econtrada.component';
 import {TemplateFormComponent} from './template-form/template-form.component';
 import {DataFormComponent} from './data-form/data-form.component';
+import {RequestHttpCursosModule} from './request-http-cursos/request-http-cursos.module';
 
 const appRoutes : Routes = [
   //##################### Modulo de Formulario ##########################################
@@ -34,10 +35,13 @@ const appRoutes : Routes = [
   //   // canActivate: [AuthGuard] //redireciona para pagina de login caso nao encontre a pagina!
   // }
 
+  // Projeto request http
+  {path: '', pathMatch: 'full', redirectTo: 'cursos'},
+  {path: 'cursos', loadChildren: () => RequestHttpCursosModule}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, {useHash: true})],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

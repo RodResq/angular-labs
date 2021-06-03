@@ -10,6 +10,7 @@ import { CursosListaComponent } from './cursos-lista/cursos-lista.component';
   imports: [
     CommonModule,
     RequestHttpCursosRoutingModule
-  ]
+  ],
+  exports: [CursosListaComponent]
 })
 export class RequestHttpCursosModule { }
