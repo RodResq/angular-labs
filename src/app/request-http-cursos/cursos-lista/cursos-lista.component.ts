@@ -12,18 +12,18 @@ import {tap} from 'rxjs/operators';
 })
 export class CursosListaComponent implements OnInit {
 
-  cursos$: Observable<any>;
-
   cursos: Curso[];
+  cursos$: Observable<Curso[]>;
 
   constructor(private cursoService: CursosService) { }
 
   ngOnInit(): void {
-    this.cursoService.listar()
-      .pipe(
-        tap(console.log)
-      )
-      .subscribe(dados => this.cursos = dados)
+    // this.cursoService.listar()
+    //   .pipe(
+    //     tap(console.log)
+    //   )
+    //   .subscribe(dados => this.cursos = dados)
+    this.cursos$ = this.cursoService.listar();
   }
 
   onRefresh() {
