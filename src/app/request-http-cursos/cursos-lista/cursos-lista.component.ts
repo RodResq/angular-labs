@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
+import {CursosService} from './cursos.service';
+import {Curso} from './curso';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -8,11 +11,19 @@ import {Observable} from 'rxjs';
   preserveWhitespaces: true
 })
 export class CursosListaComponent implements OnInit {
+
   cursos$: Observable<any>;
 
-  constructor() { }
+  cursos: Curso[];
+
+  constructor(private cursoService: CursosService) { }
 
   ngOnInit(): void {
+    this.cursoService.listar()
+      .pipe(
+        tap(console.log)
+      )
+      .subscribe(dados => this.cursos = dados)
   }
 
   onRefresh() {
