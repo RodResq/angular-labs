@@ -5,7 +5,7 @@ import {CursosComponent} from './cursos/cursos.component';
 import {ModuleWithProviders} from '@angular/core';
 import {CursoDetalheComponent} from './cursos/curso-detalhe/curso-detalhe.component';
 import {CursoNaoEncontradoComponent} from './cursos/curso-nao-encontrado/curso-nao-encontrado.component';
-import {RequestHttpCursosModule} from './request-http-cursos/request-http-cursos.module';
+import {RequestHttpCursosModule} from './request-http/cursos/request-http-cursos.module';
 
 const APP_ROUTES : Routes = [
   // Porjeto Anterior

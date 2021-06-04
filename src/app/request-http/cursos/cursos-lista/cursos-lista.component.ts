@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {CursosService} from './cursos.service';
 import {Curso} from './curso';
-import {tap} from 'rxjs/operators';
+import {take, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -23,7 +23,7 @@ export class CursosListaComponent implements OnInit {
     //     tap(console.log)
     //   )
     //   .subscribe(dados => this.cursos = dados)
-    this.cursos$ = this.cursoService.listar();
+    this.cursos$ = this.cursoService.listar().pipe();
   }
 
   onRefresh() {

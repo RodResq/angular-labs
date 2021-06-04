@@ -9,7 +9,8 @@ import {AlunosGuard} from './guards/alunos.guard';
 import {PaginaNaoEcontradaComponent} from './pagina-nao-econtrada/pagina-nao-econtrada.component';
 import {TemplateFormComponent} from './template-form/template-form.component';
 import {DataFormComponent} from './data-form/data-form.component';
-import {RequestHttpCursosModule} from './request-http-cursos/request-http-cursos.module';
+import {RequestHttpCursosModule} from './request-http/cursos/request-http-cursos.module';
+import {UnsubscribeRxjsModule} from './request-http/unsubscribe-rxjs/unsubscribe-rxjs.module';
 
 const appRoutes : Routes = [
   //##################### Modulo de Formulario ##########################################
@@ -37,7 +38,8 @@ const appRoutes : Routes = [
 
   // Projeto request http
   {path: '', pathMatch: 'full', redirectTo: 'cursos'},
-  {path: 'cursos', loadChildren: () => RequestHttpCursosModule}
+  {path: 'cursos', loadChildren: () => RequestHttpCursosModule},
+  {path: 'rxjs-poc', loadChildren: () => UnsubscribeRxjsModule}
 ];
 
 @NgModule({
