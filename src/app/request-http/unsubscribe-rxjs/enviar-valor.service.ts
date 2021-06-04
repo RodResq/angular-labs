@@ -13,4 +13,10 @@ export class EnviarValorService {
   emitirValor(valor) {
     this.emissor$.next(valor);
   }
+
+  getValor() {
+    return this.emissor$.asObservable();
+  }
+
+
 }
