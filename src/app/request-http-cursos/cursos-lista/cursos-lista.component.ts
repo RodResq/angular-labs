@@ -12,7 +12,7 @@ import {tap} from 'rxjs/operators';
 })
 export class CursosListaComponent implements OnInit {
 
-  cursos: Curso[];
+  // cursos: Curso[];
   cursos$: Observable<Curso[]>;
 
   constructor(private cursoService: CursosService) { }

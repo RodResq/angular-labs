@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Curso} from './curso';
 import {environment} from '../../../environments/environment';
+import {delay, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class CursosService {
 
   listar(): Observable<Curso[]> {
     return this.httpClient.get<Curso[]>(this.APi)
+      .pipe(
+        delay(2000),
+        tap(console.log)
+      )
   }
  }
