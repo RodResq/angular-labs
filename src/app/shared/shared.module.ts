@@ -7,6 +7,7 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { InputFieldComponent } from './input-field/input-field.component';
 import {FormsModule} from '@angular/forms';
 import {BaseFormComponent} from './base-form/base-form.component';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
 
 
 
@@ -16,6 +17,7 @@ import {BaseFormComponent} from './base-form/base-form.component';
     CampoControlErroComponent,
     ErrorMsgComponent,
     InputFieldComponent,
+    AlertModalComponent,
   ],
   imports: [
     CommonModule,
