@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import {empty, Observable, Subject} from 'rxjs';
 import {CursosService} from './cursos.service';
 import {Curso} from './curso';
-import {take, tap} from 'rxjs/operators';
+import {catchError, take, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -14,6 +14,7 @@ export class CursosListaComponent implements OnInit {
 
   // cursos: Curso[];
   cursos$: Observable<Curso[]>;
+  error$ = new Subject<boolean>();
 
   constructor(private cursoService: CursosService) { }
 
@@ -23,11 +24,25 @@ export class CursosListaComponent implements OnInit {
     //     tap(console.log)
     //   )
     //   .subscribe(dados => this.cursos = dados)
-    this.cursos$ = this.cursoService.listar().pipe();
+    this.onRefresh();
   }
 
   onRefresh() {
-
+    this.cursos$ = this.cursoService.listar()
+      .pipe(catchError(err => {
+        console.log(err);
+        this.error$.next(true);
+        return empty();
+      }));
+    // this.cursoService.listar()
+    //   .subscribe(dados => {
+    //       console.log(dados);
+    //     },
+    //     error => {
+    //       console.log('Capturando o error dentro do subscribe');
+    //     },
+    //     () => console.log('complete, dentro do subscribe')
+    //   )
   }
 
   onEdit(id) {
