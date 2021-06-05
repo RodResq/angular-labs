@@ -6,7 +6,7 @@ import {Subject} from 'rxjs';
 })
 export class EnviarValorService {
 
-  private emissor$ = new Subject();
+  private emissor$ = new Subject<string>();
 
   constructor() { }
 
