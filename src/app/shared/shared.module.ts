@@ -17,6 +17,7 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
     CampoControlErroComponent,
     ErrorMsgComponent,
     InputFieldComponent,
+    AlertModalComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +28,7 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
     CampoControlErroComponent,
     ErrorMsgComponent,
     InputFieldComponent,
+    AlertModalComponent
   ],
   providers: [
     DropdownService
