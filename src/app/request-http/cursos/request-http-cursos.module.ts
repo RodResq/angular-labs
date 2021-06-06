@@ -4,9 +4,8 @@ import {CommonModule} from '@angular/common';
 import {RequestHttpCursosRoutingModule} from './request-http-cursos-routing.module';
 import {CursosListaComponent} from './cursos-lista/cursos-lista.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import {SharedModule} from '../../shared/shared.module';
-import { CursosFormComponent } from './cursos-form/cursos-form.component';
+import {CursosFormComponent} from './cursos-form/cursos-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +16,7 @@ import { CursosFormComponent } from './cursos-form/cursos-form.component';
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RequestHttpCursosRoutingModule,
   ],
   exports: [CursosListaComponent],
