@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {MeuPrimeiroComponent} from './meu-primeiro/meu-primeiro.component';
@@ -36,12 +36,13 @@ import {AuthService} from './login/auth.service';
 import {AuthGuard} from './guards/auth.guard';
 import {CursosGuard} from './guards/cursos.guard';
 import {AlunosGuard} from './guards/alunos.guard';
-import { PaginaNaoEcontradaComponent } from './pagina-nao-econtrada/pagina-nao-econtrada.component';
-import { FormsComponent } from './forms/forms.component';
+import {PaginaNaoEcontradaComponent} from './pagina-nao-econtrada/pagina-nao-econtrada.component';
+import {FormsComponent} from './forms/forms.component';
 import {TemplateFormModule} from './template-form/template-form.module';
 import {HttpClientModule} from '@angular/common/http';
 import {DataFormModule} from './data-form/data-form.module';
-import { RequestHttpComponent } from './request-http/request-http.component';
+import {RequestHttpComponent} from './request-http/request-http.component';
+import {SharedModule} from './shared/shared.module';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -86,6 +87,7 @@ registerLocaleData(localePt, 'pt-BR')
     TemplateFormModule,
     DataFormModule,
     HttpClientModule,
+    SharedModule,
     // AlunosModule,
     AppRoutingModule
     // routing

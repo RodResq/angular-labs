@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {BsModalService} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-alert-modal',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertModalComponent implements OnInit {
 
-  constructor() { }
+  @Input() message = 'success';
+  @Input() type: string;
+
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
 
+  onClose() {
+    this.modalService.hide();
+  }
 }
