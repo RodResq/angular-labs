@@ -43,6 +43,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {DataFormModule} from './data-form/data-form.module';
 import {RequestHttpComponent} from './request-http/request-http.component';
 import {SharedModule} from './shared/shared.module';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 registerLocaleData(localePt, 'pt-BR')
 
@@ -88,6 +89,7 @@ registerLocaleData(localePt, 'pt-BR')
     DataFormModule,
     HttpClientModule,
     SharedModule,
+    ModalModule.forRoot(),
     // AlunosModule,
     AppRoutingModule
     // routing

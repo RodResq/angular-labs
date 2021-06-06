@@ -22,7 +22,7 @@ export class CursosListaComponent implements OnInit {
   constructor(
     private cursoService: CursosService,
     // private modalService: BsModalService,
-    // private alertModalService: AlertModalService
+    private alertService: AlertModalService
     ) { }
 
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class CursosListaComponent implements OnInit {
     this.cursos$ = this.cursoService.listar()
       .pipe(catchError(err => {
         console.log(err);
-        // this.handleError();
+        this.handleError();
         // this.error$.next(true);
         return empty();
       }));
@@ -54,7 +54,7 @@ export class CursosListaComponent implements OnInit {
   }
 
   handleError() {
-    // this.alertModalService.showAlertDanger('Erro ao carregar cursos. Tente novamente mais tarde!')
+    this.alertService.showAlertDanger('Erro ao carregar cursos. Tente novamente mais tarde.');
   }
 
   onEdit(id) {
