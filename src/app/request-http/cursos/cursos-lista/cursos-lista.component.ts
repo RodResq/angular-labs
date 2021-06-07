@@ -5,6 +5,8 @@ import {Curso} from './curso';
 import {catchError} from 'rxjs/operators';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {AlertModalService} from '../../../shared/alert-modal/alert-modal.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {relative} from '@angular/compiler-cli/src/ngtsc/file_system';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -22,7 +24,9 @@ export class CursosListaComponent implements OnInit {
   constructor(
     private cursoService: CursosService,
     // private modalService: BsModalService,
-    private alertService: AlertModalService
+    private alertService: AlertModalService,
+    private router: Router,
+    private activatedRouter: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
@@ -58,7 +62,7 @@ export class CursosListaComponent implements OnInit {
   }
 
   onEdit(id) {
-
+    this.router.navigate(['editar', id], { relativeTo: this.activatedRouter })
   }
 
   onDelete(curso: any) {
