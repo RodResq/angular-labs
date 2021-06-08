@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CursoGuard } from './curso.guard';
+import { CursoGuardResolve } from './curso-guard.resolve';
 
 describe('CursoGuard', () => {
-  let guard: CursoGuard;
+  let guard: CursoGuardResolve;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(CursoGuard);
+    guard = TestBed.inject(CursoGuardResolve);
   });
 
   it('should be created', () => {
