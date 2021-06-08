@@ -6,12 +6,8 @@ import {CursoGuardResolve} from './guard/curso-guard.resolve';
 
 const routes: Routes = [
   {path: '', component: CursosListaComponent},
-  {path: 'novo', component: CursosFormComponent,
-    resolve: {
-      curso: CursoGuardResolve
-    }
-  },
-  {path:'editar/:id', component: CursosFormComponent}
+  {path: 'novo', component: CursosFormComponent, resolve: {curso: CursoGuardResolve}},
+  {path:'editar/:id', component: CursosFormComponent, resolve: {curso: CursoGuardResolve}}
 ];
 
 @NgModule({

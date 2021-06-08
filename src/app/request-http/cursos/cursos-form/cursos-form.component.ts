@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CursosService} from '../cursos-lista/cursos.service';
 import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
-import {map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-cursos-form',
@@ -22,15 +21,17 @@ export class CursosFormComponent implements OnInit {
     private activatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRouter.params
-      .pipe(
-        map((params: any) => params['id']),
-        switchMap(id => this.cursoService.loadById(id))
-      ).subscribe(curso => this.updateForm(curso));
+    // this.activatedRouter.params
+    //   .pipe(
+    //     map((params: any) => params['id']),
+    //     switchMap(id => this.cursoService.loadById(id))
+    //   ).subscribe(curso => this.updateForm(curso));
 
+    const curso  = this.activatedRouter.snapshot.data['curso'];
+    console.log(curso);
     this.form = this.formBuilder.group({
-      id: [null],
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]]
+      id: [curso.id],
+      nome: [curso.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]]
     })
   }
 
