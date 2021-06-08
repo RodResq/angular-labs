@@ -37,17 +37,17 @@ export class CursosFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log('onSubmit');
     if(this.form.valid) {
-      console.log(this.form.value);
-      this.cursoService.create(this.form.value).subscribe(
+      console.log('submit');
+
+      this.cursoService.save(this.form.value).subscribe(
         success => {
           this.location.back();
           console.log(success);
         },
-        error => console.error(error),
-        () => console.log('Complete executado')
-      )
+        error => console.log('update executado')
+      );
+
     }
   }
 
