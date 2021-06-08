@@ -22,7 +22,7 @@ export class CursosService {
   }
 
   loadById(id) {
-    return this.httpClient.get(`${this.API}/${id}`).pipe(take(1));
+    return this.httpClient.get<Curso>(`${this.API}/${id}`).pipe(take(1));
   }
 
   create(curso) {
