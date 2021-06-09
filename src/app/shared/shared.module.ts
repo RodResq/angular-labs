@@ -34,9 +34,6 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
   ],
   providers: [
     DropdownService
-  ],
-  entryComponents: [
-    ConfirmModalComponent
   ]
 })
 export class SharedModule { }

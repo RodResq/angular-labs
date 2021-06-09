@@ -17,6 +17,6 @@ export class AlertModalComponent implements OnInit {
   }
 
   onClose() {
-    this.modalService.hide();
+    this.modalService.hide()
   }
 }
