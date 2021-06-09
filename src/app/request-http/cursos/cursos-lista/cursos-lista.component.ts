@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {empty, Observable, Subject} from 'rxjs';
 import {CursosService} from './cursos.service';
 import {Curso} from './curso';
@@ -6,7 +6,7 @@ import {catchError} from 'rxjs/operators';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {AlertModalService} from '../../../shared/alert-modal/alert-modal.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {relative} from '@angular/compiler-cli/src/ngtsc/file_system';
+import {log} from 'util';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -16,17 +16,20 @@ import {relative} from '@angular/compiler-cli/src/ngtsc/file_system';
 })
 export class CursosListaComponent implements OnInit {
 
-  modalRef: BsModalRef;
+  // modalRef: BsModalRef;
   // cursos: Curso[];
-  cursos$: Observable<Curso[]>;
   error$ = new Subject<boolean>();
+  cursos$: Observable<Curso[]>;
+  @ViewChild('deleteModal') deleteModalView;
+  deleteModalReef: BsModalRef;
+  curso: Curso;
 
   constructor(
     private cursoService: CursosService,
-    // private modalService: BsModalService,
+    private modalService: BsModalService,
     private alertService: AlertModalService,
     private router: Router,
-    private activatedRouter: ActivatedRoute
+    private activatedRouter: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
@@ -65,15 +68,26 @@ export class CursosListaComponent implements OnInit {
     this.router.navigate(['editar', id], { relativeTo: this.activatedRouter })
   }
 
-  onDelete(curso: any) {
-
+  onDelete(curso) {
+    this.curso = curso;
+    this.deleteModalReef = this.modalService.show(this.deleteModalView, {class: 'modal-sm'});
   }
 
   onConfirmDelete() {
-
+    this.cursoService.delete(this.curso.id).subscribe(
+      success => {
+        console.log('Curso deletado com sucesso');
+        this.deleteModalReef.hide();
+        this.onRefresh()
+      },
+      error => {
+        console.log(error);
+        this.deleteModalReef.hide();
+      }
+    )
   }
 
   onDeclineDelete() {
-
+    this.deleteModalReef.hide();
   }
 }
