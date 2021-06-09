@@ -8,6 +8,7 @@ import { InputFieldComponent } from './input-field/input-field.component';
 import {FormsModule} from '@angular/forms';
 import {BaseFormComponent} from './base-form/base-form.component';
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 
 
 
@@ -17,7 +18,8 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
     CampoControlErroComponent,
     ErrorMsgComponent,
     InputFieldComponent,
-    AlertModalComponent
+    AlertModalComponent,
+    ConfirmModalComponent
   ],
   imports: [
     CommonModule,
@@ -33,5 +35,8 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
   providers: [
     DropdownService
   ],
+  entryComponents: [
+    ConfirmModalComponent
+  ]
 })
 export class SharedModule { }
