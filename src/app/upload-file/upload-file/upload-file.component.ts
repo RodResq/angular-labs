@@ -72,6 +72,12 @@ export class UploadFileComponent implements OnInit, OnDestroy {
         const file = new Blob([resp], {
           type: resp.type
         });
+
+        // IE
+        if(window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(file);
+          return;
+        }
         const blob = window.URL.createObjectURL(file);
         const link = document.createElement('a');
         link.href = blob;
