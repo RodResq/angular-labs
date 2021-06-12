@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {HttpEvent, HttpEventType} from '@angular/common/http';
 import {filterResponse, uploadProgress} from '../../shared/rxjs-operators';
 import {log} from 'util';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-upload-file',
@@ -63,5 +64,28 @@ export class UploadFileComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.filesUndescribe.unsubscribe();
+  }
+
+  onDownloadExel() {
+    this.service.download('http://localhost:8000/downloadExcel')
+      .subscribe((resp: any) => {
+        const file = new Blob([resp], {
+          type: resp.type
+        });
+        const blob = window.URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = blob;
+        link.download = 'report.xlsx';
+
+        link.click();
+
+        window.URL.revokeObjectURL(blob);
+        link.remove();
+
+      });
+  }
+
+  onDownloadPdf() {
+
   }
 }

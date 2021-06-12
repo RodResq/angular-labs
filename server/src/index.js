@@ -21,6 +21,14 @@ app.post('/upload', multipartMiddleware, (req, resp) => {
   res.json({ message: files });
 });
 
+app.get('/downloadExcel', (req, resp) => {
+  resp.download('./uploads/report.xlsx');
+});
+
+app.get('/downloadPDF', (req, resp) => {
+  resp.download('./uploads/report.pdf');
+});
+
 app.use((err, req, resp, next) => resp.json({ error: err.message }));
 
 app.listen(8000, () => {

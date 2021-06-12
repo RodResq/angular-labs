@@ -7,6 +7,8 @@
     <div class="progress-bar" role="progressbar" [style.width]="progress + '%'">{{ progress }}%</div>
   </div>
 </div>
-<div style="margin-top: 10px">
-  <button type="button" class="btn btn-primary" (click)="onUpload()" [disabled]="!filesSet.size">Upload</button>
+<div style="margin-top: 10px; margin-right: 5px">
+  <button style="margin-right: 5px" type="button" class="btn btn-primary" (click)="onUpload()" [disabled]="!filesSet.size">Upload</button>
+  <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="onDownloadExel()">Download Excel</button>
+  <button style="margin-right: 5px" type="button" class="btn btn-success" (click)="onDownloadPdf()">Download PDF</button>
 </div>
