@@ -39,7 +39,7 @@ const appRoutes : Routes = [
   // }
 
   // Projeto request http
-  {path: '', pathMatch: 'full', redirectTo: 'upload'},
+  {path: '', pathMatch: 'full', redirectTo: 'busca-reativa'},
   {path: 'cursos', loadChildren: () => RequestHttpCursosModule},
   {path: 'rxjs-poc', loadChildren: () => UnsubscribeRxjsModule},
   {path: 'upload', loadChildren: () => UploadFileModule},
