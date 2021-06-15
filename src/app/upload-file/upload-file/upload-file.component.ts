@@ -5,6 +5,7 @@ import {HttpEvent, HttpEventType} from '@angular/common/http';
 import {filterResponse, uploadProgress} from '../../shared/rxjs-operators';
 import {log} from 'util';
 import {environment} from '../../../environments/environment';
+import {bubble} from 'ngx-bootstrap/chronos/duration/bubble';
 
 @Component({
   selector: 'app-upload-file',
@@ -83,11 +84,17 @@ export class UploadFileComponent implements OnInit, OnDestroy {
         link.href = blob;
         link.download = 'report.xlsx';
 
-        link.click();
+        // link.click();
+        link.dispatchEvent(new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        }));
 
-        window.URL.revokeObjectURL(blob);
-        link.remove();
-
+        setTimeout(() => { // Firefox
+          window.URL.revokeObjectURL(blob);
+          link.remove();
+        }, 100)
       });
   }
 
