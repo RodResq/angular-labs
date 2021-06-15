@@ -70,35 +70,14 @@ export class UploadFileComponent implements OnInit, OnDestroy {
   onDownloadExel() {
     this.service.download('http://localhost:8000/downloadExcel')
       .subscribe((resp: any) => {
-        const file = new Blob([resp], {
-          type: resp.type
-        });
-
-        // IE
-        if(window.navigator && window.navigator.msSaveOrOpenBlob) {
-          window.navigator.msSaveOrOpenBlob(file);
-          return;
-        }
-        const blob = window.URL.createObjectURL(file);
-        const link = document.createElement('a');
-        link.href = blob;
-        link.download = 'report.xlsx';
-
-        // link.click();
-        link.dispatchEvent(new MouseEvent('click', {
-            bubbles: true,
-            cancelable: true,
-            view: window
-        }));
-
-        setTimeout(() => { // Firefox
-          window.URL.revokeObjectURL(blob);
-          link.remove();
-        }, 100)
+        this.service.handleFiles(resp, 'report.xlsx')
       });
   }
 
   onDownloadPdf() {
-
+    this.service.download('http://localhost:8000/downloadPDF')
+      .subscribe((resp: any) => {
+        this.service.handleFiles(resp, 'report.pdf')
+      });
   }
 }
