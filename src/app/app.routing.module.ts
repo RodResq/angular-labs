@@ -12,6 +12,7 @@ import {DataFormComponent} from './data-form/data-form.component';
 import {RequestHttpCursosModule} from './request-http/cursos/request-http-cursos.module';
 import {UnsubscribeRxjsModule} from './request-http/unsubscribe-rxjs/unsubscribe-rxjs.module';
 import {UploadFileModule} from './upload-file/upload-file.module';
+import {ReactiveSearchModule} from './request-http/reactive-search/reactive-search.module';
 
 const appRoutes : Routes = [
   //##################### Modulo de Formulario ##########################################
@@ -41,7 +42,8 @@ const appRoutes : Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'upload'},
   {path: 'cursos', loadChildren: () => RequestHttpCursosModule},
   {path: 'rxjs-poc', loadChildren: () => UnsubscribeRxjsModule},
-  {path: 'upload', loadChildren: () => UploadFileModule}
+  {path: 'upload', loadChildren: () => UploadFileModule},
+  {path: 'busca-reativa', loadChildren: () => ReactiveSearchModule}
 ];
 
 @NgModule({
